@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href={{ asset('adminassets/plugins/fontawesome-free/css/all.min.css') }}>
+    <!-- Theme style -->
+    <link rel="stylesheet" href={{ asset('adminassets/dist/css/adminlte.min.css') }}>
+</head>
+<style>
+    body{
+        background: linear-gradient(60deg, #e7e6f1 10%, #f3f1ff 100% );
+    }           
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #466385
+    }
+
+    .profile-button {
+        background: #201f2b;
+        box-shadow: none;
+        border: none
+    }
+
+    .profile-button:hover {
+        background: #466385
+    }
+
+    .profile-button:focus {
+        background: #201f2b;
+        box-shadow: none
+    }
+
+    .profile-button:active {
+        background: #201f2b;
+        box-shadow: none
+    }
+
+    .back:hover {
+        color: #466385;
+        cursor: pointer
+    }
+
+    .labels {
+        font-size: 11px
+    }
+
+    .add-experience:hover {
+        background: #466385;
+        color: #fff;
+        cursor: pointer;
+        border: solid 1px #466385
+    }
+</style>
+@php
+$name = Auth::user()->username??'';
+$src = 'https://ui-avatars.com/api/?background=random&name='.$name;
+
+if(Auth::user()->image) {
+$img = Auth::user()->image;
+$src = asset('uploads/'.$img);
+}
+@endphp
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-white navbar-light shadow-sm">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+            
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <img width="25" height="25" style="object-fit: contain; margin-top: -5px;" src="{{ $src }}"
+                        class="img-circle elevation-2 ml-1" alt="User Image">
+                        <i class="fas fa-angle-down"></i>
+                    </a>
+                    <div class="dropdown-menu  dropdown-menu-right" >
+                        <span class="container">
+                            signed as {{ Auth::user()->username }}
+                        </span>
+                      
+                        <div class="dropdown-divider"></div>  
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user mr-2"></i> Profile
+                        </a>
+                        <a href="{{ route('admin.editprofile') }}" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i> Edit profile
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('logout') }}" onclick="
+                        event.preventDefault();
+                        document.getElementById('logout-form').submit()
+                        " class="dropdown-item">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            {{-- <button class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout</button>
+                            --}}
+                        </form>
+
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+    <div class="container rounded bg-white mt-5 mb-5 shadow-sm" >
+        <div class="row">
+            <div class="col-md-4 border-right shadow-sm">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="180px" style="object-fit: contain;" src="{{ $src }}">
+                    <span class="font-weight-bold"> {{ Auth::user()->username }} </span>
+                    <span class="text-black-50"> {{ Auth::user()->email }}</span>
+                    <span> </span>
+                </div>
+            </div>
+            <div class="col-md-6 ml-5">
+                <div class="p-3 py-5 ml-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
+                                placeholder="first name" value=""></div>
+                        <div class="col-md-6"><label class="labels">Surname</label><input type="text"
+                                class="form-control" value="" placeholder="surname"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
+                                class="form-control" placeholder="enter phone number" value=""></div>
+                        <div class="col-md-12"><label class="labels">Address</label><input type="text"
+                                class="form-control" placeholder="enter address line 1" value=""></div>
+                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text"
+                                class="form-control" placeholder="enter address line 2" value=""></div>
+                        <div class="col-md-12"><label class="labels">Email</label><input type="text"
+                                class="form-control" placeholder="enter email id" value=""></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><label class="labels">Country</label><input type="text"
+                                class="form-control" placeholder="country" value=""></div>
+                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
+                                class="form-control" value="" placeholder="state"></div>
+                    </div>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">
+                        Save Profile</button></div>
+                </div>
+            </div>
+     <!--        <div class="col-md-4">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit
+                            Experience</span><span class="border px-3 p-1 add-experience"><i
+                                class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text"
+                            class="form-control" placeholder="experience" value=""></div> <br>
+                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text"
+                            class="form-control" placeholder="additional details" value=""></div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

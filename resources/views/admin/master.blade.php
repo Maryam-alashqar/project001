@@ -23,6 +23,14 @@
         margin-right: 12px;
         box-sizing: border-box;
     }
+    .dropdown-divider2 {
+  height: 0;
+
+  margin: 1rem 0;
+  overflow: hidden;
+  opacity: 20%;
+  border-top: 1px solid #e7e6f1;
+}
 </style>
 
 <body class="hold-transition sidebar-mini">
@@ -51,72 +59,6 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
 
-
-                <!-- Messages Dropdown Menu -->
-
-
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src={{ asset('adminassets/dist/img/user1-128x128.jpg') }} alt="User Avatar"
-                                    class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src={{ asset('adminassets/dist/img/user8-128x128.jpg') }} alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src={{ asset('adminassets/dist/img/user3-128x128.jpg') }} alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
                 <!-- user Dropdown Menu -->
 
                 <li class="nav-item dropdown">
@@ -156,28 +98,38 @@
                     }
                     @endphp
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        {{ Auth::user()->username }}
-
-                        <img width="30" height="30" style="object-fit: contain; margin-top: -5px;" src="{{ $src }}" class="img-circle elevation-2 ml-1" alt="User Image">
+                        <img width="25" height="25" style="object-fit: contain; margin-top: -5px;" src="{{ $src }}"
+                            class="img-circle elevation-2 ml-1" alt="User Image">
+                        <i class="fas fa-angle-down"></i>
                     </a>
                     <div class="dropdown-menu  dropdown-menu-right">
+                        <a href="" class="dropdown-item">
+                            signed as <br> {{ Auth::user()->username }}
+                        </a>
+
+                        <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
                             <i class="fas fa-user mr-2"></i> Profile
                         </a>
+                        <a href="{{ route('admin.editprofile') }}" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i> Edit profile
+                        </a>
+
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('logout') }}"
-                        onclick="
+                        <a href="{{ route('logout') }}" onclick="
                         event.preventDefault();
                         document.getElementById('logout-form').submit()
-                        "
-                        class="dropdown-item">
-                          <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        " class="dropdown-item">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
                         </a>
-              
+
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                          @csrf
-                          {{-- <button class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout</button> --}}
+                            @csrf
+                            {{-- <button class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout</button>
+                            --}}
                         </form>
+
+                    </div>
                 </li>
 
             </ul>
@@ -202,12 +154,11 @@
 
 
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
+                <nav class="mt-3">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                        <li class="nav-item">
+                        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                        <li class="nav-item mb-1">
                             <a href="{{ route('admin.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -215,9 +166,9 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mb-1">
                             <a href="#" class="nav-link ">
-                                <i class="nav-icon "></i>
+                                <i class="nav-icon fas fa-grip-vertical"></i>
                                 <p>
                                     Categories
                                     <i class="right fas fa-angle-left"></i>
@@ -233,22 +184,22 @@
 
                                 <li class="nav-item">
                                     <a href="{{ route('admin.categories.create') }}" class="nav-link ">
-                                        <i class="fas fa-plus"> </i>      
+                                        <i class="fas fa-plus"> </i>
                                         <p> Add new category</p>
                                     </a>
                                 </li>
-                              
+
                                 <li class="nav-item">
                                     <a href="{{ route('admin.categories.recycle') }}" class="nav-link">
                                         <i class="fas fa-recycle"> </i>
-                                          <p> Recycle bin</p>
+                                        <p> Recycle bin</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mb-1">
                             <a href="#" class="nav-link ">
-                                <i class="nav-icon"></i>
+                                <i class="nav-icon far fa-newspaper"></i>
                                 <p>
                                     Articles
                                     <i class="right fas fa-angle-left"></i>
@@ -256,22 +207,28 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link ">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Active Page</p>
+                                    <a href="{{ route('admin.articales.index') }}" class="nav-link">
+                                        <i class="far fa-eye"> </i>
+                                        <p> All articales</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inactive Page</p>
+                                    <a href="{{ route('admin.articales.create') }}" class="nav-link ">
+                                        <i class="fas fa-plus"> </i>
+                                        <p> Add new article</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.articales.recycle') }}" class="nav-link">
+                                        <i class="fas fa-recycle"> </i>
+                                        <p> Recycle bin</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mb-1">
                             <a href="#" class="nav-link ">
-                                <i class="nav-icon"></i>
+                                <i class="nav-icon fas fa-user-shield"></i>
                                 <p>
                                     Authors
                                     <i class="right fas fa-angle-left"></i>
@@ -292,7 +249,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <div class="dropdown-divider2"></div>
+
+                        <li class="nav-item mb-1">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-cog"></i>
                                 <p>
@@ -303,20 +262,20 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link ">
-                                        <i class="far fa-user-circle"></i>                                     
+                                        <i class="far fa-user-circle"></i>
                                         <p> Settings</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link ">
                                         <i class="fas fa-lock"></i>
-                                           <p> Permissions</p>
+                                        <p> Permissions</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link ">
                                         <i class="fas fa-exclamation-triangle"></i>
-                                     <p> Report a problem</p>
+                                        <p> Report a problem</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -356,7 +315,9 @@
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
-                <strong>Copyright &copy; 2022-2023 <a href=" ">News.website</a>.</strong> All rights reserved.
+                <strong>Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> <a href=" ">News.website</a>.
+                </strong> All rights reserved.
             </div>
             <!-- Default to the left -->
         </footer>
