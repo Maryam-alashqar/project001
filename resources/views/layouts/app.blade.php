@@ -20,7 +20,6 @@
     .header {
           position: relative;
           text-align: center;
-          background: linear-gradient(60deg, #201f2b 0%, #466385 40%);
           color: white;
 
           /*  */
@@ -28,7 +27,7 @@
       .content {
           position: relative;
           text-align: center;
-          background: linear-gradient(60deg, #201f2b 0%, #466385 100%);
+          background: linear-gradient(60deg, #e7e6f1 10%, #f3f1ff 100% );
           color: white;
 
           /*  */
@@ -92,7 +91,7 @@
             </div>
         </nav>
 
-        <main class="py-4 ">
+        <main class="py-4" style="background: linear-gradient(60deg, #e7e6f1 10%, #f3f1ff 100% );">
             @yield('content')
         </main>
     </div>

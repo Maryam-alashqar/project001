@@ -29,13 +29,13 @@
         p {
             letter-spacing: 1px;
             font-size: 14px;
-            color: #bfc2e2;
+            color: #151516;
         }
 
         .header {
             position: relative;
             text-align: center;
-            background: linear-gradient(60deg, #201f2b 0%, #466385 100%);
+            background: linear-gradient(60deg, #e7e6f1 10%, #f3f1ff 100% );
             color: white;
 
             /*  */
@@ -70,7 +70,7 @@
             position: relative;
             height: 10vh;
             text-align: center;
-            background-color: #acb9df;
+            background-color: #1d1c1c;
         }
 
         /* Animation */
@@ -124,12 +124,13 @@
 
         .login-box {
             position: absolute;
+            margin-left: 250px;
             top: 50%;
             left: 50%;
             width: 400px;
             padding: 40px;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, .5);
+            background: rgba(0, 0, 0, 0.5);
             box-sizing: border-box;
             box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
             border-radius: 10px;
@@ -138,7 +139,7 @@
         .login-box h2 {
             margin: 0 0 30px;
             padding: 0;
-            color: #fff;
+            color: #1d1c1c;
             text-align: center;
         }
 
@@ -151,10 +152,10 @@
             width: 100%;
             padding: 10px 0;
             font-size: 16px;
-            color: #fff;
+            color: #1d1c1c;
             /* margin-bottom: 30px; */
             border: none;
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid #1d1c1c;
             outline: none;
             background: transparent;
         }
@@ -165,7 +166,7 @@
             left: 0;
             padding: 10px 0;
             font-size: 16px;
-            color: #fff;
+            color: #1d1c1c;
             pointer-events: none;
             transition: .5s;
         }
@@ -174,7 +175,7 @@
         .login-box .user-box input:valid~label {
             top: -20px;
             left: 0;
-            color: #acb9df;
+            color: #1d1c1c;
             font-size: 12px;
         }
 
@@ -182,7 +183,7 @@
             position: relative;
             display: inline-block;
             padding: 10px 20px;
-            color: #fff;
+            color: #1d1c1c;
             font-size: 16px;
             text-decoration: none;
             text-transform: uppercase;
@@ -197,13 +198,13 @@
         }
 
         .login-box button:hover {
-            background: #acb9df;
+            background: #1d1c1c;
             color: #fff;
             border-radius: 5px;
-            box-shadow: 0 0 5px #acb9df,
-                0 0 25px #acb9df,
-                0 0 50px #acb9df,
-                0 0 100px #acb9df;
+            box-shadow: 0 0 5px #1d1c1c,
+                0 0 25px #1d1c1c,
+                0 0 50px #1d1c1c,
+                0 0 100px #1d1c1c;
         }
 
         .login-box button span {
@@ -216,7 +217,7 @@
             left: -100%;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #acb9df);
+            background: linear-gradient(90deg, transparent, #1d1c1c);
             animation: btn-anim1 1s linear infinite;
         }
 
@@ -236,7 +237,7 @@
             right: 0;
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg, transparent, #acb9df);
+            background: linear-gradient(180deg, transparent, #1d1c1c);
             animation: btn-anim2 1s linear infinite;
             animation-delay: .25s
         }
@@ -257,7 +258,7 @@
             right: -100%;
             width: 100%;
             height: 2px;
-            background: linear-gradient(270deg, transparent, #acb9df);
+            background: linear-gradient(270deg, transparent, #1d1c1c);
             animation: btn-anim3 1s linear infinite;
             animation-delay: .5s
         }
@@ -278,7 +279,7 @@
             left: 0;
             width: 2px;
             height: 100%;
-            background: linear-gradient(360deg, transparent, #acb9df);
+            background: linear-gradient(360deg, transparent, #1d1c1c);
             animation: btn-anim4 1s linear infinite;
             animation-delay: .75s
         }
@@ -297,9 +298,6 @@
 </head>
 
 <body>
-
-    <!--Hey! This is the original version
-of Simple CSS Waves-->
 
     <div class="header">
 

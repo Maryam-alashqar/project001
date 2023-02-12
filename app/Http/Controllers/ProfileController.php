@@ -2,23 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categories;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryRequest;
 
-class CategoryController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $categories = categories::latest('id')->paginate(env('PAGINATION_COUNT'));
-        return view('admin.categories.index',compact('categories'));
+    public function index(){
+        return view('admin.profile');
     }
-
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        //
     }
 
     /**
@@ -35,13 +32,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(Request $request)
     {
-        categories::create([
-            'name' => $request->name,
-            'description' => $request->description,
-        ]);
-        return redirect()->route('admin.categories.index')->with('msg', 'Category Added Successfully')->with('type', 'success');
+        //
     }
 
     /**
@@ -61,9 +54,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        
+        
     }
 
     /**
