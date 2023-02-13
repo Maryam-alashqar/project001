@@ -6,7 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Site\SiteController;
 use App\Http\Controllers\Admin\AdminController;
-
+use App\Http\Controllers\ArticaleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +26,7 @@ Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(
 
     Route::get('categories/recycle', [CategoryController::class, 'recycle'])->name('categories.recycle');
         Route::resource('categories', CategoryController::class);
-        Route::get('articales/recycle', [ArticaleController::class, 'recycle'])->name('articales.recycle');
+    Route::get('articales/recycle', [ArticaleController::class, 'recycle'])->name('articales.recycle');
         Route::resource('articales', ArticaleController::class);
 
 });

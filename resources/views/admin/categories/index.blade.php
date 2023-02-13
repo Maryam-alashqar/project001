@@ -12,7 +12,7 @@
                       <tr  class="bg-dark text-white">
                           <th>ID</th>
                           <th>Name</th>
-                          <th>Discription</th>
+                          <th>description</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -20,7 +20,7 @@
                           <tr>
                               <td>{{ $category->id }}</td>
                               <td>{{ $category->name }}</td>
-                              <td>{{ $category->discrition }}</td>
+                              <td>{{ $category->description }}</td>
                          
                           </tr>
                       @empty
