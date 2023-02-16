@@ -34,7 +34,7 @@
                     <div class="mb-3">
                         <label for="description">Description</label>
                         <div class="mt-2">
-                            <textarea name="description" class="myeditor">{{ old('description') }}</textarea>
+                            <textarea name="description" class="myeditor" value="{{ old('description') }}"></textarea>
                             @error('description')
                             <small class="text-danger">{{ $message }}</small>
                             @enderror

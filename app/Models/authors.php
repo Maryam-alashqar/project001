@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class authors extends Model
 {
     use HasFactory,  SoftDeletes;
+    
+    public function authors()
+    {
+        return $this->hasMany(articales::class);
+    }
 }

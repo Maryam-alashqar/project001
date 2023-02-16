@@ -14,5 +14,6 @@ class articales extends Model
     public function articales()
     {
         return $this->belongsTo(categories::class);
+        
     }
 }

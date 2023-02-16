@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\articales;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticaleRequest;
 
 class ArticaleController extends Controller
 {
@@ -33,17 +34,15 @@ class ArticaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticaleRequest $request)
     {
         $path = $request->file('image')->store('/uploads', 'custom');
 
             articales::create([
-                'name' => $request->title,
+                'title' => $request->title,
                 'short_description' => $request->short_description,
                 'full_description' => $request->full_description,
-                'image' => $path,
-                
-            
+                'image' => $path,    
             ]);
         return redirect()->route('admin.articales.index')->with('msg', 'articale Added Successfully')->with('type', 'success'); 
     }

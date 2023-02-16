@@ -32,8 +32,8 @@ Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(
     Route::resource('articales', ArticaleController::class);
 
     
-    Route::get('articales/recycle', [AuthorController::class, 'recycle'])->name('articales.recycle');
-    Route::resource('articales', AuthorController::class);
+    Route::get('author/recycle', [AuthorController::class, 'recycle'])->name('author.recycle');
+    Route::resource('author', AuthorController::class);
 
 });
 

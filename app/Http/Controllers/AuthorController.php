@@ -13,7 +13,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+       return view('admin.author.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.author.create');
     }
 
     /**

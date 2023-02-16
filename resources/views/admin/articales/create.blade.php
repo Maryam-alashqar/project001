@@ -3,12 +3,14 @@
 @section('content')
 
 <section>
-    <div class="container">
+    <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1>Add new Articales</h1>
-                <form action="{{ route('admin.articales.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.articales.store') }}" method="POST" 
+                enctype="multipart/form-data">
                     @csrf
+
                     <div class="mb-3">
                         <label for="author">Author</label>
                         <div class="col-md-6">
@@ -36,10 +38,10 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="name">Title</label>
+                        <label for="title">Title</label>
                         <div class="col-md-6">
 
-                            <input id="name" name="name" type="text" placeholder="Name"
+                            <input id="title" name="title" type="text" placeholder="Title"
                                 class="form-control @error('title') is-invalid @enderror " value="{{ old('title') }}" />
                             @error('title')
                             <small class="invalid-feedback">{{ $message }}</small>
@@ -73,7 +75,7 @@
                     <div class="mb-3">
                         <label for="description">Full Description</label>
                         <div class="mt-2">
-                            <textarea name="full_description" class="myeditor">{{ old('full_description') }}</textarea>
+                            <textarea name="full_description" class="myeditor" value= "{{ old('full_description') }}"></textarea>
                             @error('full_description')
                             <small class="text-danger">{{ $message }}</small>
                             @enderror
@@ -101,3 +103,4 @@
         selector: '.myeditor'
     })
 </script>
+@stop
