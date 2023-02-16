@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\articales;
 use Illuminate\Http\Request;
 
-class ArticaleController extends Controller
+class AuthorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class ArticaleController extends Controller
      */
     public function index()
     {
-       return view('admin.articales.index');
+        //
     }
 
     /**
@@ -24,7 +23,7 @@ class ArticaleController extends Controller
      */
     public function create()
     {
-        return view('admin.articales.create');
+        //
     }
 
     /**
@@ -35,17 +34,7 @@ class ArticaleController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request->file('image')->store('/uploads', 'custom');
-
-            articales::create([
-                'name' => $request->title,
-                'short_description' => $request->short_description,
-                'full_description' => $request->full_description,
-                'image' => $path,
-                
-            
-            ]);
-        return redirect()->route('admin.articales.index')->with('msg', 'articale Added Successfully')->with('type', 'success'); 
+        //
     }
 
     /**

@@ -1,7 +1,5 @@
 @extends('admin.master')
 
-@section('title', 'create category')
-
 @section('content')
 
 <section>
@@ -50,10 +48,8 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
 </section>
-
+@stop
 
 @section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.3.1/tinymce.min.js"

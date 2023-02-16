@@ -10,4 +10,9 @@ class articales extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+
+    public function articales()
+    {
+        return $this->belongsTo(categories::class);
+    }
 }
