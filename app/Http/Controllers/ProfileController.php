@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\ProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -13,7 +15,8 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('admin.profile');
+      
+        return view('admin.profile.index');
     }
    
     /**
@@ -45,7 +48,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+       return $id;
     }
 
     /**
@@ -56,7 +59,8 @@ class ProfileController extends Controller
      */
     public function edit(User $user)
     {
-        
+  
+        return view('admin.profile.edit')->with('user', $user);
         
     }
 
@@ -67,9 +71,24 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProfileRequest $request, User $user)
     {
-        //
+        $path = $user->image;
+        if($request->hasFile('image')) {
+            File::delete(public_path($user->image));
+            $path = $request->file('image')->store('/uploads', 'custom');
+        }
+
+        $user->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'image' => $path,
+            'dob' => $request->dob,
+            'fb' => $request->fb,
+            'tw' => $request->tw,
+        ]);
+        return redirect()->route('admin.profile.index')->with('msg', 'profile Updated Successfully')->with('type', 'warning');
+
     }
 
     /**

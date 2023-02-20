@@ -119,9 +119,7 @@
                             <i class="fas fa-user mr-2"></i> Profile
                         </a>
 
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-user-edit"></i> Edit profile
-                        </a>
+                    
 
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('logout') }}" onclick="

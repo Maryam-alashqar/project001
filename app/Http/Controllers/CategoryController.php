@@ -86,6 +86,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        categories::destroy($id);
+        return redirect()->route('admin.categories.index')->with('msg', 'Category Deleted Successfully')->with('type', 'danger');
     }
 }

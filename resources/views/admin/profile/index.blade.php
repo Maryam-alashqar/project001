@@ -147,7 +147,11 @@ $src = asset('uploads/'.$img);
                 <a class=" mb-0">{{ Auth::user()->fb}}</a>
               </div>
             </div>
-
+            <div class="mt-5 mb-3 text-right">
+              <a href="{{ route('admin.profile.edit', Auth::user()->id) }}" class="btn btn-primary btn-sm"> 
+                <i class="fas fa-user-edit"></i> Edit Profile </a>
+            
+            </div>
           </div>
         </div>
       </div>
@@ -187,7 +191,7 @@ $src = asset('uploads/'.$img);
                 </div>
               </div> -->
     </div>
-  </>
+  </div>
 </section>
 
 @stop
