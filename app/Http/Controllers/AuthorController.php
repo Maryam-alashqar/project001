@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\authors;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -13,7 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-       return view('admin.author.index');
+       return view('admin.authors');
     }
 
     /**
@@ -23,7 +24,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view('admin.author.create');
+
     }
 
     /**

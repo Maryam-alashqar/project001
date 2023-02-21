@@ -63,6 +63,7 @@
                     </form>
                 </li>
             </ul>
+
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
 
@@ -131,8 +132,8 @@
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
-                            {{-- <button class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout</button>
-                            --}}
+                            {{-- <button class="dropdown-item">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout</button> --}}
                         </form>
 
                     </div>
@@ -230,27 +231,10 @@
                             </ul>
                         </li>
                         <li class="nav-item mb-1">
-                            <a href="#" class="nav-link ">
+                            <a href="{{ route('admin.authors.index') }}" class="nav-link ">
                                 <i class="nav-icon fas fa-user-shield"></i>
-                                <p>
-                                    Authors
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p> Authors </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link ">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p></p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <div class="dropdown-divider2"></div>
 

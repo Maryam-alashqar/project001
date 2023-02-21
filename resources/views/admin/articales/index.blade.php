@@ -1,5 +1,6 @@
 @extends('admin.master')
 
+@section('title', 'Articales')
 @section('content')
 
 

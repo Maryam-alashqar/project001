@@ -81,8 +81,7 @@ $src = asset('uploads/'.$img);
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
-                    <form action="" method="POST"
-                        enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
 
@@ -91,25 +90,29 @@ $src = asset('uploads/'.$img);
                                 <input type="text" class="form-control" placeholder="first name"
                                     value="{{ old('firstname', $user->firstname) }}">
                             </div>
-                            <div class="col-md-6"><label class="labels">Surname</label><input type="text"
-                                    class="form-control" value="" placeholder="surname"></div>
+                            <div class="col-md-6"><label class="labels">Surname</label>
+                                <input type="text" class="form-control" value="" placeholder="surname">
+                            </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
-                                    class="form-control" placeholder="enter phone number" value=""></div>
-                            <div class="col-md-12"><label class="labels">Address</label><input type="text"
-                                    class="form-control" placeholder="enter address line 1" value=""></div>
-                            <div class="col-md-12"><label class="labels">Postcode</label><input type="text"
-                                    class="form-control" placeholder="enter address line 2" value=""></div>
-                            <div class="col-md-12"><label class="labels">Email</label><input type="text"
-                                    class="form-control" placeholder="enter email id" value=""></div>
+                            <div class="col-md-12">
+                                <label class="labels">Mobile Number</label>
+                                <input type="text" class="form-control" placeholder="enter phone number" value="">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels">Date og birth</label>
+                                <input type="text" class="form-control" placeholder="enter address line 1" value="">
+                            </div>
+
+                            <div class="col-md-12"><label class="labels">Email</label>
+                                <input type="text" class="form-control" placeholder="enter email id" value="">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels">bio</label>
+                                <input type="text" class="form-control" placeholder="bio" value="">
+                            </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Country</label><input type="text"
-                                    class="form-control" placeholder="country" value=""></div>
-                            <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
-                                    class="form-control" value="" placeholder="state"></div>
-                        </div>
+
                         <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">
                                 Save Profile</button></div>
                     </form>
@@ -128,9 +131,5 @@ $src = asset('uploads/'.$img);
             </div> -->
         </div>
     </div>
-    </div>
-    </div>
-
 </section>
-
 @stop
