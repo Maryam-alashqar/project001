@@ -88,5 +88,11 @@ class CategoryController extends Controller
     {
         categories::destroy($id);
         return redirect()->route('admin.categories.index')->with('msg', 'Category Deleted Successfully')->with('type', 'danger');
+    } 
+
+    public function trash()
+    {
+            $categories = categories::onlyTrashed()->latest('id')->paginate(env('PAGINATION_COUNT'));
+        return view('admin.categories.trash', compact('categories'));
     }
 }

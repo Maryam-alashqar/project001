@@ -6,6 +6,7 @@ use App\Models\articales;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticaleRequest;
 
+
 class ArticaleController extends Controller
 {
     /**
@@ -37,7 +38,7 @@ class ArticaleController extends Controller
     public function store(ArticaleRequest $request)
     {
         $path = $request->file('image')->store('/uploads', 'custom');
-
+        
             articales::create([
                 'title' => $request->title,
                 'short_description' => $request->short_description,
@@ -89,6 +90,13 @@ class ArticaleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        articales::destroy($id);
+        return redirect()->route('admin.articales.index')->with('msg', 'Articale Deleted Successfully')->with('type', 'danger');
     }
+    public function trash()
+    {
+            $articales = articales::onlyTrashed()->latest('id')->paginate(env('PAGINATION_COUNT'));
+        return view('admin.articales.trash', compact('articales'));
+    }
+    
 }

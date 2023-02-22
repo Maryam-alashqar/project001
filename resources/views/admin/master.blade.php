@@ -194,7 +194,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.categories.recycle') }}" class="nav-link">
+                                    <a href="{{ route('admin.categories.trash') }}" class="nav-link">
                                         <i class="fas fa-recycle"> </i>
                                         <p> Recycle bin</p>
                                     </a>
@@ -223,7 +223,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.articales.recycle') }}" class="nav-link">
+                                    <a href="{{ route('admin.articales.trash') }}" class="nav-link">
                                         <i class="fas fa-recycle"> </i>
                                         <p> Recycle bin</p>
                                     </a>
@@ -282,9 +282,14 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" >
             <!-- Main content -->
-            @yield('content')
+            <div class="content">
+                <div class="container-fluid" >
+                    @yield('content')
+                
+                </div>
+                </div>
         </div>
         <!-- /.content-wrapper -->
 

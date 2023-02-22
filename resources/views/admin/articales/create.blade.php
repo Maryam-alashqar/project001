@@ -27,10 +27,14 @@
                     <div class="mb-3">
                         <label for="category">Category</label>
                         <div class="col-md-6">
-
-                            <input id="category" name="category" type="text" placeholder="category"
-                                class="form-control @error('category') is-invalid @enderror "
-                                value="{{ old('category') }}" />
+                       
+                            
+                            <select name="category" id="category"  
+                            class="form-control @error('category') is-invalid @enderror ">
+                                <option  value="{{ old('category') }}">1</option>
+                                
+                            </select>
+                      
                             @error('category')
                             <small class="invalid-feedback">{{ $message }}</small>
                             @enderror

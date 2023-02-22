@@ -60,9 +60,8 @@ $src = asset('uploads/'.$img);
 @endphp
 @section('content')
 <section style="background-color: #eee;">
-    <div class="container py-5">
+    <div class="container">
         <div class="row">
-
             <div class="col-lg-4">
                 <div class="card mb-4">
                     <div class="card-body text-center">
@@ -73,7 +72,6 @@ $src = asset('uploads/'.$img);
 
                     </div>
                 </div>
-
             </div>
 
             <div class="col-md-6 ml-5">
@@ -81,54 +79,76 @@ $src = asset('uploads/'.$img);
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.profile.index') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
 
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">Name</label>
                                 <input type="text" class="form-control" placeholder="first name"
-                                    value="{{ old('firstname', $user->firstname) }}">
+                                    value="{{ old('firstname', Auth::user()->firstname) }}">
                             </div>
                             <div class="col-md-6"><label class="labels">Surname</label>
-                                <input type="text" class="form-control" value="" placeholder="surname">
+                                <input type="text" class="form-control"
+                                    value="{{ old('lastname', Auth::user()->lastname) }}">
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-3">
                                 <label class="labels">Mobile Number</label>
-                                <input type="text" class="form-control" placeholder="enter phone number" value="">
+                                <input type="text" class="form-control"
+                                    value="{{ old('mobile', Auth::user()->mobile) }}">
                             </div>
-                            <div class="col-md-12">
-                                <label class="labels">Date og birth</label>
-                                <input type="text" class="form-control" placeholder="enter address line 1" value="">
+                            <div class="col-md-12 mb-3">
+                                <label class="labels">Date of birth</label>
+                                <input type="date" class="form-control" value="{{ old('dob', Auth::user()->dob) }}">
                             </div>
 
-                            <div class="col-md-12"><label class="labels">Email</label>
-                                <input type="text" class="form-control" placeholder="enter email id" value="">
+                            <div class="col-md-12 mb-3"><label class="labels">Email</label>
+                                <input type="text" class="form-control" value="{{ old('email', Auth::user()->email) }}">
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-3">
                                 <label class="labels">bio</label>
-                                <input type="text" class="form-control" placeholder="bio" value="">
+                                <input type="text" class="form-control" value="{{ old('bio', Auth::user()->bio) }}">
+                            </div>
+                            <hr>
+                            <h6>links</h6>
+                            <div class="row col-md-12 mb-2">
+                                <div class="col-sm-3">
+                                    <i class="fab fa-linkedin fa-lg" style="color: #3b5998;"></i>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="link" class="form-control" value="{{ Auth::user()->li }}">
+
+                                </div>
+                            </div>
+                            <div class=" row col-md-12 mb-2">
+                                <div class="col-sm-3">
+                                    <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="link" class="form-control" value="{{ Auth::user()->tw }}">
+
+                                </div>
+                            </div>
+                            <div class="row col-md-12 mb-2">
+                                <div class="col-sm-3">
+                                    <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="link" class="form-control" value="{{ Auth::user()->fb }}">
+
+                                </div>
                             </div>
                         </div>
-
-                        <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">
-                                Save Profile</button></div>
+                        <div class="mt-5 text-right">
+                            <button class="btn btn-primary profile-button" type="button">
+                                Save Profile</button>
+                        </div>
                     </form>
                 </div>
             </div>
-            <!--        <div class="col-md-4">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit
-                            Experience</span><span class="border px-3 p-1 add-experience"><i
-                                class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text"
-                            class="form-control" placeholder="experience" value=""></div> <br>
-                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text"
-                            class="form-control" placeholder="additional details" value=""></div>
-                </div>
-            </div> -->
+
         </div>
     </div>
 </section>

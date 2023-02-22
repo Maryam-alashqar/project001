@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\TextLength;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProfileRequest extends FormRequest
@@ -24,7 +25,10 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'firstname' => ['required', 'string'],
+            'lastname' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'bio' => [new TextLength(10)],
         ];
     }
 }
