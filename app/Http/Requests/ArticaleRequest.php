@@ -25,9 +25,9 @@ class ArticaleRequest extends FormRequest
     public function rules()
     {
         return [
+           
             'title' => ['required', 'string', new TextLength(3)],
-            'image' => ['required', 'image'],
-         
+            'image' => ['required', 'image'],         
             'short_description' => ['string'],
             'full_description' => ['required', new TextLength(20)],
         ];

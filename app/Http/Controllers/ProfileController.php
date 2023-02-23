@@ -35,9 +35,13 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfileRequest $request)
     {
-        //
+        User::create([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lasttname,
+        ]);
+        return redirect()->route('admin.profile.index')->with('msg', 'Profile edited Successfully')->with('type', 'success');
     }
 
     /**
@@ -57,7 +61,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit( User $user)
     {
   
         return view('admin.profile.edit')->with('user', $user);
@@ -85,10 +89,11 @@ class ProfileController extends Controller
             'image' => $path,
             'dob' => $request->dob,
             'fb' => $request->fb,
+            'li' => $request->li,
             'tw' => $request->tw,
+            'updated_at' => now()
         ]);
-        return redirect()->route('admin.profile.index')->with('msg', 'profile Updated Successfully')->with('type', 'warning');
-
+        return $this->success('admin.profile.index','Profile updated successfully!');
     }
 
     /**

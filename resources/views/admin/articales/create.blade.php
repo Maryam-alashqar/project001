@@ -7,8 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1>Add new Articales</h1>
-                <form action="{{ route('admin.articales.store') }}" method="POST" 
-                enctype="multipart/form-data">
+                <form action="{{ route('admin.articales.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -27,14 +26,14 @@
                     <div class="mb-3">
                         <label for="category">Category</label>
                         <div class="col-md-6">
-                       
-                            
-                            <select name="category" id="category"  
-                            class="form-control @error('category') is-invalid @enderror ">
-                                <option  value="{{ old('category') }}">1</option>
-                                
+
+                            <select name="category" id="category"
+                                class="form-control @error('category') is-invalid @enderror ">
+                                @foreach($categories as $category)
+                                <option>{{ $category->name }}</option>
+
+                                @endforeach
                             </select>
-                      
                             @error('category')
                             <small class="invalid-feedback">{{ $message }}</small>
                             @enderror
@@ -79,7 +78,8 @@
                     <div class="mb-3">
                         <label for="description">Full Description</label>
                         <div class="mt-2">
-                            <textarea name="full_description" class="myeditor" value= "{{ old('full_description') }}"></textarea>
+                            <textarea name="full_description" class="myeditor"
+                                value="{{ old('full_description') }}"></textarea>
                             @error('full_description')
                             <small class="text-danger">{{ $message }}</small>
                             @enderror

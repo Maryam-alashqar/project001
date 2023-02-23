@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\articales;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticaleRequest;
-
+use App\Models\categories;
 
 class ArticaleController extends Controller
 {
@@ -16,7 +16,9 @@ class ArticaleController extends Controller
      */
     public function index()
     {
-       return view('admin.articales.index');
+        $categories = categories::all();
+        $articales = articales::all();
+       return view('admin.articales.index', compact('articales','categories'));
     }
 
     /**
@@ -26,7 +28,8 @@ class ArticaleController extends Controller
      */
     public function create()
     {
-        return view('admin.articales.create');
+        $categories = categories::all();
+        return view('admin.articales.create', compact('categories'));
     }
 
     /**
@@ -37,9 +40,11 @@ class ArticaleController extends Controller
      */
     public function store(ArticaleRequest $request)
     {
-        $path = $request->file('image')->store('/uploads', 'custom');
+        $path = $request->file('image')->store('/uploads/articales', 'custom');
         
             articales::create([
+                'author_id' => $request->author_id,
+                'category_id' => $request->category_id,
                 'title' => $request->title,
                 'short_description' => $request->short_description,
                 'full_description' => $request->full_description,

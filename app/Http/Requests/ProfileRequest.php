@@ -28,6 +28,9 @@ class ProfileRequest extends FormRequest
             'firstname' => ['required', 'string'],
             'lastname' => ['required', 'string'],
             'email' => ['required', 'email'],
+            'li' => ['url'],
+            'tw' => [ 'url'],
+            'fb' => [ 'url'],
             'bio' => [new TextLength(10)],
         ];
     }

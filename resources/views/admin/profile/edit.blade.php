@@ -1,8 +1,6 @@
 @extends('admin.master')
-<link rel="stylesheet" href={{ asset('adminassets/plugins/fontawesome-free/css/all.min.css') }}>
-<!-- Theme style -->
-<link rel="stylesheet" href={{ asset('adminassets/dist/css/adminlte.min.css') }}>
 
+@section('style')
 <style>
     body {
         background: linear-gradient(60deg, #e7e6f1 10%, #f3f1ff 100%);
@@ -49,6 +47,9 @@
         border: solid 1px #466385
     }
 </style>
+@stop
+
+
 @php
 $name = Auth::user()->username??'';
 $src = 'https://ui-avatars.com/api/?background=random&name='.$name;
@@ -62,7 +63,7 @@ $src = asset('uploads/'.$img);
 <section style="background-color: #eee;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 mt-5">
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <img src="{{ $src }}" alt="avatar" class="rounded-circle img-fluid"
@@ -79,37 +80,38 @@ $src = asset('uploads/'.$img);
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
-                    <form action="{{ route('admin.profile.index') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.profile.update', auth()->id()) }}" method="POST" 
+                        enctype="multipart/form-data" >
                         @csrf
-                        @method('put')
+                   
 
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">Name</label>
                                 <input type="text" class="form-control" placeholder="first name"
-                                    value="{{ old('firstname', Auth::user()->firstname) }}">
+                                    value="{{ Auth::user()->firstname }}">
                             </div>
                             <div class="col-md-6"><label class="labels">Surname</label>
                                 <input type="text" class="form-control"
-                                    value="{{ old('lastname', Auth::user()->lastname) }}">
+                                    value="{{ Auth::user()->lastname }}">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12 mb-3">
                                 <label class="labels">Mobile Number</label>
                                 <input type="text" class="form-control"
-                                    value="{{ old('mobile', Auth::user()->mobile) }}">
+                                    value="{{ Auth::user()->mobile }}">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label class="labels">Date of birth</label>
-                                <input type="date" class="form-control" value="{{ old('dob', Auth::user()->dob) }}">
+                                <input type="date" class="form-control" value="{{ Auth::user()->dob }}">
                             </div>
 
                             <div class="col-md-12 mb-3"><label class="labels">Email</label>
-                                <input type="text" class="form-control" value="{{ old('email', Auth::user()->email) }}">
+                                <input type="text" class="form-control" value="{{ Auth::user()->email }}">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label class="labels">bio</label>
-                                <input type="text" class="form-control" value="{{ old('bio', Auth::user()->bio) }}">
+                                <input type="text" class="form-control" value="{{ Auth::user()->bio }}">
                             </div>
                             <hr>
                             <h6>links</h6>
