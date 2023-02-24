@@ -10,31 +10,34 @@
                 <form action="{{ route('admin.articales.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
+    
                     <div class="mb-3">
-                        <label for="author">Author</label>
+                        <label for="author_id">author</label>
                         <div class="col-md-6">
 
-                            <input id="author" name="author" type="text" placeholder="author"
-                                class="form-control @error('author') is-invalid @enderror "
-                                value="{{ old('author') }}" />
-                            @error('author')
+                            <select name="author_id" id="author_id"
+                                class="form-control @error('author_id') is-invalid @enderror ">
+                                @foreach($author as $author)
+                                <option value="{{ $author->author_id }}">{{ $author->author_email }}</option>
+                                @endforeach
+                            </select>
+                            @error('author_id')
                             <small class="invalid-feedback">{{ $message }}</small>
                             @enderror
 
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="category">Category</label>
+                        <label for="category_id">Category</label>
                         <div class="col-md-6">
 
-                            <select name="category" id="category"
-                                class="form-control @error('category') is-invalid @enderror ">
+                            <select name="category_id" id="category_id"
+                                class="form-control @error('category_id') is-invalid @enderror ">
                                 @foreach($categories as $category)
-                                <option>{{ $category->name }}</option>
-
+                                <option value="{{ $category->category_id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
-                            @error('category')
+                            @error('category_id')
                             <small class="invalid-feedback">{{ $message }}</small>
                             @enderror
 
@@ -53,10 +56,10 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="name">Short Description</label>
+                        <label for="short_description">Short Description</label>
                         <div class="col-md-6">
 
-                            <input id="name" name="name" type="text" placeholder="Name"
+                            <input id="short_description" name="short_description" type="text"
                                 class="form-control @error('short_description') is-invalid @enderror "
                                 value="{{ old('short_description') }}" />
                             @error('short_description')

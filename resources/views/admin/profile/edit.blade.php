@@ -62,14 +62,15 @@ $src = asset('uploads/'.$img);
 @section('content')
 <section style="background-color: #eee;">
     <div class="container">
+        @foreach($user as $user)
         <div class="row">
             <div class="col-lg-4 mt-5">
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <img src="{{ $src }}" alt="avatar" class="rounded-circle img-fluid"
                             style="width: 200px; height: 180px; object-fit: contain;">
-                        <h5 class="my-3">{{ Auth::user()->firstname}}</h5>
-                        <p class="text-muted mb-1">{{ Auth::user()->email}}</p>
+                        <h5 class="my-3">{{ $user->firstname}}</h5>
+                        <p class="text-muted mb-1">{{ $user->email}}</p>
 
                     </div>
                 </div>
@@ -83,27 +84,27 @@ $src = asset('uploads/'.$img);
                     <form action="{{ route('admin.profile.update', auth()->id()) }}" method="POST" 
                         enctype="multipart/form-data" >
                         @csrf
-                   
+                        @method('put')
 
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">Name</label>
                                 <input type="text" class="form-control" placeholder="first name"
-                                    value="{{ Auth::user()->firstname }}">
+                                    value="{{ $user->firstname }}">
                             </div>
                             <div class="col-md-6"><label class="labels">Surname</label>
                                 <input type="text" class="form-control"
-                                    value="{{ Auth::user()->lastname }}">
+                                    value="{{ $user->lastname }}">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12 mb-3">
                                 <label class="labels">Mobile Number</label>
                                 <input type="text" class="form-control"
-                                    value="{{ Auth::user()->mobile }}">
+                                    value="{{ $user->mobile }}">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label class="labels">Date of birth</label>
-                                <input type="date" class="form-control" value="{{ Auth::user()->dob }}">
+                                <input type="date" class="form-control" value="{{ $user->dob }}">
                             </div>
 
                             <div class="col-md-12 mb-3"><label class="labels">Email</label>
@@ -152,6 +153,7 @@ $src = asset('uploads/'.$img);
             </div>
 
         </div>
+        @endforeach
     </div>
 </section>
 @stop

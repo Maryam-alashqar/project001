@@ -14,7 +14,7 @@ class articales extends Model
     
     public function category()
     {
-        return $this->belongsTo(categories::class);    
+        return $this->belongsTo(categories::class,'name','category_id','id');
     }
 
     public function author(){

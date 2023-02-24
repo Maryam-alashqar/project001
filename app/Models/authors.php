@@ -10,8 +10,14 @@ class authors extends Model
 {
     use HasFactory,  SoftDeletes;
     
+  
     public function authors()
     {
         return $this->hasMany(articales::class);
+    }
+
+    public function user()
+    {
+       return $this->morphOne(User::class ,'author_id','id');
     }
 }

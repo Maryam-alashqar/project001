@@ -14,7 +14,7 @@ class ArticaleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class ArticaleRequest extends FormRequest
     public function rules()
     {
         return [
-           
+         
             'title' => ['required', 'string', new TextLength(3)],
             'image' => ['required', 'image'],         
             'short_description' => ['string'],

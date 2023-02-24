@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\authors;
 use App\Models\articales;
+use App\Models\categories;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticaleRequest;
-use App\Models\categories;
 
 class ArticaleController extends Controller
 {
@@ -29,7 +30,8 @@ class ArticaleController extends Controller
     public function create()
     {
         $categories = categories::all();
-        return view('admin.articales.create', compact('categories'));
+        $author = authors::all();
+        return view('admin.articales.create', compact('categories','author'));
     }
 
     /**
@@ -41,10 +43,11 @@ class ArticaleController extends Controller
     public function store(ArticaleRequest $request)
     {
         $path = $request->file('image')->store('/uploads/articales', 'custom');
+
         
             articales::create([
-                'author_id' => $request->author_id,
-                'category_id' => $request->category_id,
+               'category_id' => $request->get('name'),
+               'author_id' => $request->get('email'),
                 'title' => $request->title,
                 'short_description' => $request->short_description,
                 'full_description' => $request->full_description,
