@@ -16,8 +16,5 @@ class authors extends Model
         return $this->hasMany(articales::class);
     }
 
-    public function user()
-    {
-       return $this->morphOne(User::class ,'author_id','id');
-    }
+ 
 }

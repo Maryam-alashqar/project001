@@ -10,23 +10,7 @@
                 <form action="{{ route('admin.articales.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-    
-                    <div class="mb-3">
-                        <label for="author_id">author</label>
-                        <div class="col-md-6">
 
-                            <select name="author_id" id="author_id"
-                                class="form-control @error('author_id') is-invalid @enderror ">
-                                @foreach($author as $author)
-                                <option value="{{ $author->author_id }}">{{ $author->author_email }}</option>
-                                @endforeach
-                            </select>
-                            @error('author_id')
-                            <small class="invalid-feedback">{{ $message }}</small>
-                            @enderror
-
-                        </div>
-                    </div>
                     <div class="mb-3">
                         <label for="category_id">Category</label>
                         <div class="col-md-6">

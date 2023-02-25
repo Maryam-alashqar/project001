@@ -17,10 +17,11 @@ class CheckUserType
      */
     public function handle(Request $request, Closure $next)
     {
- 
-       if(Auth::user()->type =='user'){
-           return redirect('/');
-       }
+
+        if (Auth::user()->type == 'user') {
+            return redirect('/');
+        }
+
         return $next($request);
     }
 }
