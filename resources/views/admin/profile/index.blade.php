@@ -65,6 +65,7 @@ $src = asset('uploads/'.$img);
             <img src="{{ $src }}" alt="avatar" class="rounded-circle img-fluid"
               style="width: 200px; height: 180px; object-fit: contain;">
             <h5 class="my-3">{{ Auth::user()->firstname}}</h5>
+            <p class="text-muted mb-1">{{ Auth::user()->type }}</p>
             <p class="text-muted mb-1">{{ Auth::user()->email}}</p>
 
           </div>

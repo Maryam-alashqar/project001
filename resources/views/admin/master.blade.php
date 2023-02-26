@@ -185,14 +185,14 @@
                                         <p> All categories</p>
                                     </a>
                                 </li>
-
+                                @if( Auth::user()->type == 'author' )
                                 <li class="nav-item">
                                     <a href="{{ route('admin.categories.create') }}" class="nav-link ">
                                         <i class="fas fa-plus"> </i>
                                         <p> Add new category</p>
                                     </a>
                                 </li>
-
+                                @endif
                                 <li class="nav-item">
                                     <a href="{{ route('admin.categories.trash') }}" class="nav-link">
                                         <i class="fas fa-recycle"> </i>
@@ -216,12 +216,14 @@
                                         <p> All articales</p>
                                     </a>
                                 </li>
+                                @if( Auth::user()->type == 'author' )
                                 <li class="nav-item">
                                     <a href="{{ route('admin.articales.create') }}" class="nav-link ">
                                         <i class="fas fa-plus"> </i>
                                         <p> Add new article</p>
                                     </a>
                                 </li>
+                                @endif
                                 <li class="nav-item">
                                     <a href="{{ route('admin.articales.trash') }}" class="nav-link">
                                         <i class="fas fa-recycle"> </i>

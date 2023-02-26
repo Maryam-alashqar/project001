@@ -2,10 +2,10 @@
 
 @section('content')
 <style>
-    form{
+    form {
         margin-left: 180px;
-        padding-top: 50px ;
-        padding-bottom: 50px ;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 </style>
 <div class="container">
@@ -18,6 +18,29 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <!-- {{-- {{__('firstname') }} --}} -->
+                        <div class="row mt-2 mb-3">
+                            <div class="col-md-4">
+                                <label for="firstname" class="labels">First Name</label>
+                                <input type="text" class="form-control @error('firstname') is-invalid @enderror"
+                                    name="firstname" value="{{ old('firstname') }}">
+                                @error('firstname')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <div for="lastname" class="col-md-4">
+                                <label class="labels">Surname</label>
+                                <input type="text" class="form-control @error('lastname') is-invalid @enderror"
+                                    name="lastname" value="{{ old('lastname') }}">
+
+                                @error('lastname')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label for="email" class="col-md-2 col-form-label ">Email:</label>
 
@@ -32,7 +55,7 @@
                                 @enderror
                             </div>
                         </div>
-          <!--               <div class="row mb-4">
+                        <!--               <div class="row mb-4">
                             <div class="col-md-4">
                                 <label class="col-md-6 col-form-label">First Name: </label>
                                 <input type="name"
@@ -59,7 +82,7 @@
                             </div>
                         </div>
  -->
-                 
+
 
                         <div class="row mb-3">
                             <label for="mobile" class="col-md-2 col-form-label ">Mobile: </label>

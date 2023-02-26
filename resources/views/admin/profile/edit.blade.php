@@ -69,7 +69,7 @@ $src = asset('uploads/'.$img);
                     <div class="card-body text-center">
                         <img src="{{ $src }}" alt="avatar" class="rounded-circle img-fluid"
                             style="width: 200px; height: 180px; object-fit: contain;">
-                        <h5 class="my-3">{{ $user->firstname}}</h5>
+                        <h5 class="my-3">{{ $user->firstname}}</h5>                
                         <p class="text-muted mb-1">{{ $user->email}}</p>
 
                     </div>

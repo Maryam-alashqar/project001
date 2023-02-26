@@ -46,8 +46,7 @@ class ArticaleController extends Controller
 
         
             articales::create([
-               'category_id' => $request->get('name'),
-               'author_id' => $request->get('email'),
+               'category_id' => $request->get('category_id'),
                 'title' => $request->title,
                 'short_description' => $request->short_description,
                 'full_description' => $request->full_description,
