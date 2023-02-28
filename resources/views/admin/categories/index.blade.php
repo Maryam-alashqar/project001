@@ -11,6 +11,22 @@
                 @endif
 
                 <h1>All Categories</h1>
+                <div class="text-right mb-3">
+                    <div class="btn-group sort-btn btn-light ">
+                        <button class="btn btn-light" type="button" 
+                        aria-haspopup="true" aria-expanded="false">Sort by: </button>
+                        <button class="btn btn-light "  data-toggle="dropdown" data-sort="none">
+                            <i class="fas fa-ellipsis-v"></i></button><!-- .dropdown-toggle adds rounded borders and reduces padding. It does not trigger dropdowns. -->
+                        <ul class="dropdown-menu">
+                            <li  class="dropdown-item">
+                                <a href="#" tabindex="-1" data-type="alpha">Name</a>
+                            </li>
+                            <li  class="dropdown-item">
+                                <a href="#" tabindex="-1" data-type="numeric">id</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <table class="table table-bordered">
                     <thead>
                         <tr class="bg-dark text-white">
@@ -47,3 +63,28 @@
 </div>
 
 @stop
+<script>
+    (function(fn) {
+	'use strict';
+	fn(window.jQuery, window, document);
+}(function($, window, document) {
+	'use strict';
+	
+	$(function() {
+		$('.sort-btn').on('click', '[data-sort]', function(event) {
+			event.preventDefault();
+			
+			var $this = $(this),
+				sortDir = 'desc';
+			
+			if ($this.data('sort') !== 'asc') {
+				sortDir = 'asc';
+			}
+			
+			$this.data('sort', sortDir).find('.fa').attr('class', 'fas fa-ellipsis-v' + sortDir);
+			
+			// call sortDesc() or sortAsc() or whathaveyou...
+		});
+	});
+}));
+</script>

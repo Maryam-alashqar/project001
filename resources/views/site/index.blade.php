@@ -30,7 +30,7 @@
                             <img src={{ asset('siteassets//img/trending/trending_top.jpg') }} alt="">
                             <div class="trend-top-cap">
                                 <span>Appetizers</span>
-                                <h2><a href="details.html">Welcome To The Best Model Winner<br> Contest At Look of the
+                                <h2><a href="{{ route('site.details')}}">Welcome To The Best Model Winner<br> Contest At Look of the
                                         year</a></h2>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="trend-bottom-cap">
                                         <span class="color1">Lifestyple</span>
-                                        <h4><a href="details.html">Get the Illusion of Fuller Lashes by “Mascng.”</a>
+                                        <h4><a href="{{ route('site.details')}}">Get the Illusion of Fuller Lashes by “Mascng.”</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="trand-right-cap">
                             <span class="color1">Concert</span>
-                            <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+                            <h4><a href="{{ route('site.details')}}">Welcome To The Best Model Winner Contest</a></h4>
                         </div>
                     </div>
                 </div>

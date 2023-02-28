@@ -91,15 +91,15 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <a href="index.html"><img src={{ asset('siteassets/img/logo/logo.png') }}></a>
+                                    <a href="{{ route('site.index')}}"><img src={{ asset('siteassets/img/logo/logo.png') }}></a>
                                 </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="{{ route('site.index')}}">Home</a></li>
                                             <li><a href="categori.html">Category</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="{{ route('site.about')}}">About</a></li>
                                             <li><a href="latest_news.html">Latest News</a></li>
                                             <li><a href="contact.html">Contact</a></li>
                                      

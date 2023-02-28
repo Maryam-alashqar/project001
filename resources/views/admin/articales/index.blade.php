@@ -27,10 +27,10 @@
                                     <div class="whats-news-caption">
                                         <div class="row">
                                             @foreach($articales as $articale)
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="{{ asset( $articale->image ) }}">
+                                            <div class="col-lg-6 col-md-4 ">
+                                                <div class="single-what-news mb-5 ">
+                                                    <div class="what-img" >
+                                                        <img width="250px" hight="200px" src="{{ asset( $articale->image ) }}">
                                                 </div>
                                                 <div class=" what-cap">
                                                         <span class="color1"></span>
@@ -43,40 +43,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Card two -->
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab">
-                                    <div class="whats-news-caption">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="{{ asset('siteassets/img/news/whatNews1.jpg') }} alt="">
-                                                </div>
-                                                <div class=" what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="{{ asset('siteassets/img/news/whatNews2.jpg') }} alt="">
-                                                </div>
-                                                <div class=" what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
+                   
                             </div>
                         </div>
 
