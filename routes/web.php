@@ -22,7 +22,9 @@ use App\Http\Controllers\AuthorController;
 Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
 
-
+    Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
+    Route::post('/settings', [AdminController::class, 'settings_store'])->name('settings_store');
+    
     Route::resource('profile', ProfileController::class);
 
     Route::get('categories/trash', [CategoryController::class, 'trash'])->name('categories.trash');
