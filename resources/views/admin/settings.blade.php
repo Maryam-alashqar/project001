@@ -9,7 +9,14 @@
               <form action="{{ route('admin.settings_store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                  
-  
+                  
+
+               
+
+               
+
+                <button class="btn btn-success px-5"><i class="fas fa-save"></i> Save</button>
+
                 
               </form>
           </div>

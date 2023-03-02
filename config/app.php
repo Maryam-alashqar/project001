@@ -181,7 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Arcanedev\LaravelSettings\SettingsServiceProvider::class,
         /*
          * Package Service Providers...
          */

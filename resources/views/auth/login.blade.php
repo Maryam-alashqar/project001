@@ -35,8 +35,8 @@
         .header {
             position: relative;
             text-align: center;
-            background: linear-gradient(60deg, #e7e6f1 10%, #f3f1ff 100% );
-            color: white;
+            background: linear-gradient(60deg, #e7e6f1 10%, #d1d0d0 100% );
+            color: #8b2929;
 
             /*  */
         }
@@ -70,7 +70,7 @@
             position: relative;
             height: 10vh;
             text-align: center;
-            background-color: #1d1c1c;
+            background-color: #741f1f;
         }
 
         /* Animation */
@@ -124,22 +124,22 @@
 
         .login-box {
             position: absolute;
-            margin-left: 250px;
             top: 50%;
             left: 50%;
-            width: 400px;
+            width: 350px;
+            height: 500px;
             padding: 40px;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.5);
+            background: #ffffff80;
             box-sizing: border-box;
-            box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+            box-shadow: 0 15px 25px rgba(80, 79, 79, 0.6);
             border-radius: 10px;
         }
 
         .login-box h2 {
             margin: 0 0 30px;
             padding: 0;
-            color: #1d1c1c;
+            color: #741f1f;
             text-align: center;
         }
 
@@ -152,10 +152,10 @@
             width: 100%;
             padding: 10px 0;
             font-size: 16px;
-            color: #1d1c1c;
+            color: #741f1f;
             /* margin-bottom: 30px; */
             border: none;
-            border-bottom: 1px solid #1d1c1c;
+            border-bottom: 1px solid #741f1f;
             outline: none;
             background: transparent;
         }
@@ -166,7 +166,7 @@
             left: 0;
             padding: 10px 0;
             font-size: 16px;
-            color: #1d1c1c;
+            color: #741f1f;
             pointer-events: none;
             transition: .5s;
         }
@@ -175,15 +175,15 @@
         .login-box .user-box input:valid~label {
             top: -20px;
             left: 0;
-            color: #1d1c1c;
+            color: #741f1f;
             font-size: 12px;
         }
 
         .login-box form button {
             position: relative;
             display: inline-block;
-            padding: 10px 20px;
-            color: #1d1c1c;
+            padding: 10px 30px;
+            color: #e1d3e4;
             font-size: 16px;
             text-decoration: none;
             text-transform: uppercase;
@@ -191,20 +191,26 @@
             transition: .5s;
             margin-top: 40px;
             background: transparent;
+            background: #741f1f;
             border: none;
             cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #741f1f,
+                0 0 25px #741f1f,
+                0 0 50px #741f1f,
+                0 0 100px #741f1f;
             font-family: event-reg !important;
             /* letter-spacing: 4px */
         }
 
         .login-box button:hover {
-            background: #1d1c1c;
+            background: #bd8282;
             color: #fff;
             border-radius: 5px;
-            box-shadow: 0 0 5px #1d1c1c,
-                0 0 25px #1d1c1c,
-                0 0 50px #1d1c1c,
-                0 0 100px #1d1c1c;
+            box-shadow: 0 0 5px #bd8282,
+                0 0 25px #bd8282,
+                0 0 50px #bd8282,
+                0 0 100px #bd8282;
         }
 
         .login-box button span {
@@ -212,88 +218,10 @@
             display: block;
         }
 
-        .login-box button span:nth-child(1) {
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #1d1c1c);
-            animation: btn-anim1 1s linear infinite;
-        }
+   
+    
 
-        @keyframes btn-anim1 {
-            0% {
-                left: -100%;
-            }
-
-            50%,
-            100% {
-                left: 100%;
-            }
-        }
-
-        .login-box button span:nth-child(2) {
-            top: -100%;
-            right: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, #1d1c1c);
-            animation: btn-anim2 1s linear infinite;
-            animation-delay: .25s
-        }
-
-        @keyframes btn-anim2 {
-            0% {
-                top: -100%;
-            }
-
-            50%,
-            100% {
-                top: 100%;
-            }
-        }
-
-        .login-box button span:nth-child(3) {
-            bottom: 0;
-            right: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(270deg, transparent, #1d1c1c);
-            animation: btn-anim3 1s linear infinite;
-            animation-delay: .5s
-        }
-
-        @keyframes btn-anim3 {
-            0% {
-                right: -100%;
-            }
-
-            50%,
-            100% {
-                right: 100%;
-            }
-        }
-
-        .login-box button span:nth-child(4) {
-            bottom: -100%;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(360deg, transparent, #1d1c1c);
-            animation: btn-anim4 1s linear infinite;
-            animation-delay: .75s
-        }
-
-        @keyframes btn-anim4 {
-            0% {
-                bottom: -100%;
-            }
-
-            50%,
-            100% {
-                bottom: 100%;
-            }
-        }
+    
     </style>
 </head>
 
@@ -324,7 +252,7 @@
                         </div>
                         <div class="form-check">
                             @if (Route::has('password.request'))
-                            <a style="text-decoration: none;color:#ffff" href="{{ route('password.request') }}">
+                            <a style="text-decoration: none;color:#741f1f" href="{{ route('password.request') }}">
                                 {{ __('Forgot password?') }}
                             </a>
                             @endif
@@ -337,16 +265,13 @@
                         </div>
 
                         <button href="#">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                      
                            Login
                         </button>
                         <br>
                         <br>   
                         <p>Don't have an account?
-                            <a style="text-decoration: none;color:#ffff" href="{{ route('register') }}"> 
+                            <a style="color:#741f1f" href="{{ route('register') }}"> 
                                 {{ __('Sign up') }}
                             </a>
                         </p> 

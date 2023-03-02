@@ -7,6 +7,36 @@
         padding-top: 50px;
         padding-bottom: 50px;
     }
+    form button {
+            position: relative;
+        
+            display: inline-block;
+            padding: 10px 150px;
+            color: #e4d3d3;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 40px;
+         
+            background: transparent;
+            background: #8b2929;
+            border: none;
+            cursor: pointer;
+            font-family: event-reg !important;
+            /* letter-spacing: 4px */
+        }
+        button:hover {
+            background: #bd8282;
+            color: #fff;
+        
+            box-shadow: 0 0 5px #bd8282,
+                0 0 25px #bd8282,
+                0 0 50px #bd8282,
+                0 0 100px #bd8282;
+        }
+
 </style>
 <div class="container">
     <div class="row justify-content-center">
@@ -153,9 +183,9 @@
 
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                            <div class="col-md-8 ">
+                                <button type="submit">
+                                    {{ __('Sign In') }}
                                 </button>
                             </div>
                         </div>
