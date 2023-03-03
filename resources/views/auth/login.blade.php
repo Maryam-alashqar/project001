@@ -152,7 +152,7 @@
             width: 100%;
             padding: 10px 0;
             font-size: 16px;
-            color: #741f1f;
+            color: #181313;
             /* margin-bottom: 30px; */
             border: none;
             border-bottom: 1px solid #741f1f;

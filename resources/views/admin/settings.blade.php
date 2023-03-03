@@ -9,14 +9,7 @@
               <form action="{{ route('admin.settings_store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                  
-                  
-
-               
-
-               
-
-                <button class="btn btn-success px-5"><i class="fas fa-save"></i> Save</button>
-
+    
                 
               </form>
           </div>
@@ -29,26 +22,6 @@
 
 @section('scripts')
 <script>
-    // function readURL(input) {
 
-    // }
-
-    $('input[type=file]').on('change', function(e) {
-
-        // console.log(e.target);
-
-        if (e.target.files && e.target.files[0]) {
-
-            let inp = $(this)
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                // console.log(inp);
-                inp.next('img').attr('src', e.target.result).width(150);
-            };
-
-            reader.readAsDataURL(e.target.files[0]);
-        }
-    })
 </script>
 @stop

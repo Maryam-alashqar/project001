@@ -40,6 +40,8 @@ Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(
 Route::name('site.')->group(function () {
     Route::get('/', [SiteController::class, 'index'])->name('index');
     Route::get('/about', [SiteController::class, 'about'])->name('about');
+    Route::get('/category', [SiteController::class, 'category'])->name('category');
+    Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
     Route::get('/details', [SiteController::class, 'details'])->name('details');
 });
 

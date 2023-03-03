@@ -98,10 +98,10 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="{{ route('site.index')}}">Home</a></li>
-                                            <li><a href="categori.html">Category</a></li>
+                                            <li><a href="{{ route('site.category')}}">Category</a></li>
                                             <li><a href="{{ route('site.about')}}">About</a></li>
                                             <li><a href="latest_news.html">Latest News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{{ route('site.contact')}}">Contact</a></li>
                                      
                                         </ul>
                                     </nav>

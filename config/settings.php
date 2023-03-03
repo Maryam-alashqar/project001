@@ -39,6 +39,8 @@ return [
             ],
         ],
 
+ 
+
         'redis' => [
             'driver'  => Arcanedev\LaravelSettings\Stores\RedisStore::class,
 

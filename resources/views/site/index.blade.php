@@ -54,17 +54,19 @@
                         </div>
                     </div>
                 </div>
-                <!-- 5 Riht content -->
+                <!-- 5 last added Right content -->
                 <div class="col-lg-4">
+                    @foreach($articales as $articale)
                     <div class="trand-right-single d-flex">
-                        <div class="trand-right-img">
-                            <img src={{ asset('siteassets//img/trending/right1.jpg') }} alt="">
+                        <div class="trand-right-img" >
+                            <img width="180px" height="110px" src={{ asset( $articale -> image) }}>
                         </div>
                         <div class="trand-right-cap">
-                            <span class="color1">Concert</span>
-                            <h4><a href="{{ route('site.details')}}">Welcome To The Best Model Winner Contest</a></h4>
+                            <span class="color1">{{ $articale->category->name  }}</span>
+                            <h4><a href="{{ route('site.details')}}">{{ $articale -> title }}</a></h4>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
