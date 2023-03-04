@@ -57,10 +57,44 @@
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
-                                    <ul class="header-social">
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item dropdown">    
+                          
+                                            <a class="nav-link" data-toggle="dropdown" href="#">
+                                                <img width="25" height="20" style="object-fit: contain; margin-top: -5px;" src=""
+                                                    class="img-circle elevation-2 ml-1" alt="">
+                                                <i class="fas fa-angle-down"></i>
+                                            </a>
+                                            <div class="dropdown-menu  dropdown-menu-right">
+                                                <a href="" class="dropdown-item">
+                                                    signed as <br>
+                                                </a>
+                        
+                                                <div class="dropdown-divider"></div>
+                                                <a href="{{ }}" class="dropdown-item">
+                                                    <i class="fas fa-user mr-2"></i> Profile
+                                                </a>
+                        
+                                            
+                        
+                                                <div class="dropdown-divider"></div>
+                                                <a href="{{ route('logout') }}" onclick="
+                                                event.preventDefault();
+                                                document.getElementById('logout-form').submit()
+                                                " class="dropdown-item">
+                                                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                                </a>
+                        
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+                                                    {{-- <button class="dropdown-item">
+                                                        <i class="fas fa-sign-out-alt mr-2"></i> Logout</button> --}}
+                                                </form>
+                        
+                                            </div>
+
+                                        </li>
+                               
                                     </ul>
                                 </div>
                             </div>
