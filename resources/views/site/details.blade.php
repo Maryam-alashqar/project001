@@ -9,17 +9,16 @@
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Trending Tittle -->
+                 
                     <div class="about-right mb-90">
                         <div class="about-img">
                             <img src="assets/img/trending/trending_top.jpg" alt="">
                         </div>
                         <div class="section-tittle mb-30 pt-30">
-                            <h3>Here come the moms in space</h3>
+                            <h3>{{ $details-> title }}</h3>
                         </div>
                         <div class="about-prea">
-                            <p class="about-pera1 mb-25">Moms are like…buttons? Moms are like glue. Moms are like pizza
-                                crusts.
-                                Moms are the ones who make sure things happen—from birth to school lunch.</p>
+                            <p class="about-pera1 mb-25">{{ $details-> short_description }}</p>
                             <p class="about-pera1 mb-25">
                                 My hero when I was a kid was my mom. Same for everyone I knew. Moms are untouchable.
                                 They’re
@@ -69,6 +68,7 @@
                         </div>
 
                     </div>
+                    @endforeach
                     <!-- From -->
                     <div class="row">
                         <div class="col-lg-8">

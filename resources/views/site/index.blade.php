@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Trending Top -->
@@ -30,7 +30,8 @@
                             <img src={{ asset('siteassets//img/trending/trending_top.jpg') }} alt="">
                             <div class="trend-top-cap">
                                 <span>Appetizers</span>
-                                <h2><a href="{{ route('site.details')}}">Welcome To The Best Model Winner<br> Contest At Look of the
+                                <h2><a href="{{ route('site.details')}}">Welcome To The Best Model Winner<br> Contest At
+                                        Look of the
                                         year</a></h2>
                             </div>
                         </div>
@@ -45,7 +46,8 @@
                                     </div>
                                     <div class="trend-bottom-cap">
                                         <span class="color1">Lifestyple</span>
-                                        <h4><a href="{{ route('site.details')}}">Get the Illusion of Fuller Lashes by “Mascng.”</a>
+                                        <h4><a href="{{ route('site.details')}}">Get the Illusion of Fuller Lashes by
+                                                “Mascng.”</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -58,12 +60,15 @@
                 <div class="col-lg-4">
                     @foreach($articales as $articale)
                     <div class="trand-right-single d-flex">
-                        <div class="trand-right-img" >
+                        <div class="trand-right-img">
                             <img width="180px" height="110px" src={{ asset( $articale -> image) }}>
                         </div>
                         <div class="trand-right-cap">
-                            <span class="color1">{{ $articale->category->name  }}</span>
-                            <h4><a href="{{ route('site.details')}}">{{ $articale -> title }}</a></h4>
+                            <span class="color1">{{ $articale->category->name }}</span>
+                            <h4>
+                                <a href="{{ route('site.details', $articale->id) }}">
+                                    {{ $articale -> title }}</a>
+                            </h4>
                         </div>
                     </div>
                     @endforeach

@@ -63,7 +63,8 @@ class ArticaleController extends Controller
      */
     public function show($id)
     {
-        //
+        $details = articales:: findOrFail($id);
+        return view('admin.articales.articaledetail',compact('details'));
     }
 
     /**

@@ -31,9 +31,10 @@ class SiteController extends Controller
 
       return view('site.contact');
    }
-   public function details()
+   public function details($id)
    {
-
-      return view('site.details');
+      $details = articales:: findOrFail($id);
+    
+      return view('site.details', compact('details'));
    }
 }

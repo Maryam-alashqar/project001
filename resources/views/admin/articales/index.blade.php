@@ -98,7 +98,7 @@
                             <img width="200px" hight="120px" src="{{ asset( $articale->image ) }}">
 
                             <span class="color1"> {{ $articale->category->name }}</span>
-                            <p><a href="#">{{ $articale->title }}</a></p>
+                            <p><a href="{{ route('admin.articales.show', $articale->id) }}">{{ $articale->title }}</a></p>
 
                         </div>
                     </div>
