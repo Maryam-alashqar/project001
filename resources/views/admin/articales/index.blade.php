@@ -80,7 +80,7 @@
                                     <i class="fas fa-ellipsis-v"></i>
                                 </a>
                                 <div class="dropdown-menu  dropdown-menu-right">
-                                    <a href="" class="dropdown-item">
+                                    <a href="{{ route('admin.articales.edit', $articale->id) }}" class="dropdown-item">
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
                                     <form class="d-inline"

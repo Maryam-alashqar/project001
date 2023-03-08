@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\authors;
 use App\Models\articales;
 use App\Models\categories;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticaleRequest;
 
@@ -64,7 +65,7 @@ class ArticaleController extends Controller
     public function show($id)
     {
         $details = articales:: findOrFail($id);
-        return view('admin.articales.articaledetail',compact('details'));
+        return view('admin.articales.show',compact('details'));
     }
 
     /**
@@ -73,9 +74,9 @@ class ArticaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(articales $articale)
     {
-        //
+        return view('admin.articales.edit')->with('articale', $articale);
     }
 
     /**
@@ -85,9 +86,22 @@ class ArticaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArticaleRequest $request,articales $articale)
     {
-        //
+        $path = $articale->image;
+        if($request->hasFile('image')) {
+            File::delete(public_path($articale->image));
+            $path = $request->file('image')->store('/uploads/articales', 'custom');
+        }
+
+        $articale->update([
+            'title' => $request->title,
+            'image' => $path,
+            'short_description' => $request->short_description,
+            'full_description' => $request->full_description,
+        ]);
+
+        return redirect()->route('admin.articales.index')->with('msg', 'News Updated Successfully')->with('type', 'warning');
     }
 
     /**

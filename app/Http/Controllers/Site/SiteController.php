@@ -11,10 +11,18 @@ class SiteController extends Controller
 {
    public function index()
    {
-      $articales = articales::with('category')->latest('id')->orderBy('id', 'desc')->limit(5)->get();
+      $articales = articales::with('category')->latest('id')
+         ->orderBy('id', 'desc')->limit(5)->get();
+
       return view('site.index', compact('articales'));
    }
+   
+   public function details($id)
+   {
+      $details = articales::findOrFail($id);
 
+      return view('site.details', compact('details'));
+   }
    public function category()
    {
 
@@ -30,11 +38,5 @@ class SiteController extends Controller
    {
 
       return view('site.contact');
-   }
-   public function details($id)
-   {
-      $details = articales:: findOrFail($id);
-    
-      return view('site.details', compact('details'));
    }
 }

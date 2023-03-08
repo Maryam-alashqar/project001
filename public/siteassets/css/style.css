@@ -69,7 +69,7 @@
     background: #fff;
     color: #fc3f00 !important;
     display: inline-block;
-    padding: 18px 44px;
+    padding: 10px 25px;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -3690,7 +3690,7 @@ hr {
 }
 
 .about-area .about-right .about-img img {
-    width: 100%
+    width: 90%
 }
 
 .about-area .about-right .about-prea p {
