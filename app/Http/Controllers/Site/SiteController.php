@@ -16,8 +16,14 @@ class SiteController extends Controller
 
       return view('site.index', compact('articales'));
    }
-   
+
    public function details($id)
+   {
+      $details = articales::findOrFail($id);
+
+      return view('site.details', compact('details'));
+   }
+   public function comment($id)
    {
       $details = articales::findOrFail($id);
 
