@@ -50,6 +50,10 @@
                             </p>
 
                         </div>
+                        <div class="mt-5 text-right">
+                            <a href="{{ route('admin.articales.edit', $details -> id ) }}" class="btn btn-secondary profile-button" type="button">
+                               Edit</a>
+                        </div>
 
                     </div>
 

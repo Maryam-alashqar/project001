@@ -62,15 +62,15 @@ $src = asset('uploads/'.$img);
 @section('content')
 <section style="background-color: #eee;">
     <div class="container">
-        @foreach($user as $user)
+
         <div class="row">
             <div class="col-lg-4 mt-5">
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <img src="{{ $src }}" alt="avatar" class="rounded-circle img-fluid"
                             style="width: 200px; height: 180px; object-fit: contain;">
-                        <h5 class="my-3">{{ $user->firstname}}</h5>                
-                        <p class="text-muted mb-1">{{ $user->email}}</p>
+                        <h5 class="my-3"></h5>
+                        <p class="text-muted mb-1"></p>
 
                     </div>
                 </div>
@@ -81,38 +81,43 @@ $src = asset('uploads/'.$img);
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
-                    <form action="{{ route('admin.profile.update', auth()->id()) }}" method="POST" 
+                    <form action="{{ route('admin.profile.update', Auth::user()->id) }}" method="POST"
                         enctype="multipart/form-data" >
                         @csrf
-                        @method('put')
+
 
                         <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Name</label>
-                                <input type="text" class="form-control" placeholder="first name"
-                                    value="{{ $user->firstname }}">
+                            <div class="col-md-6">
+                                <label for="firstname" class="labels">Name</label>
+                                <input name="firstname" type="text" class="form-control" placeholder="first name"
+                                value="{{ auth()->user()->firstname }}">
                             </div>
-                            <div class="col-md-6"><label class="labels">Surname</label>
-                                <input type="text" class="form-control"
-                                    value="{{ $user->lastname }}">
+                            <div class="col-md-6">
+                                <label for="lastname" class="labels">Surname</label>
+                                <input name="lastname" type="text" class="form-control"
+                                    value="{{ auth()->user()->lastname }}">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12 mb-3">
-                                <label class="labels">Mobile Number</label>
+                                <label for="mobile" class="labels">Mobile Number</label>
                                 <input type="text" class="form-control"
-                                    value="{{ $user->mobile }}">
+                                    value="{{ auth()->user()->mobile }}">
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label class="labels">Date of birth</label>
-                                <input type="date" class="form-control" value="{{ $user->dob }}">
+                                <label for="dob" class="labels">Date of birth</label>
+                                <input id="dob" name="dob" type="date" class="form-control"
+                                value="{{ auth()->user()->dob }}">
                             </div>
 
-                            <div class="col-md-12 mb-3"><label class="labels">Email</label>
-                                <input type="text" class="form-control" value="{{ Auth::user()->email }}">
+                            <div class="col-md-12 mb-3">
+                                <label for="email" class="labels">Email</label>
+                                <input  id="email" name="email" type="text" class="form-control" value="{{ Auth::user()->email }}">
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label class="labels">bio</label>
-                                <input type="text" class="form-control" value="{{ Auth::user()->bio }}">
+                                <label for="bio" class="labels">bio</label>
+                                <input id="bio" name="bio" type="text" class="form-control"
+                                value="{{ Auth::user()->bio }}">
                             </div>
                             <hr>
                             <h6>links</h6>
@@ -121,7 +126,7 @@ $src = asset('uploads/'.$img);
                                     <i class="fab fa-linkedin fa-lg" style="color: #3b5998;"></i>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="link" class="form-control" value="{{ Auth::user()->li }}">
+                                    <input id="li" name="li" type="link" class="form-control" value="{{ Auth::user()->li }}">
 
                                 </div>
                             </div>
@@ -130,7 +135,7 @@ $src = asset('uploads/'.$img);
                                     <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="link" class="form-control" value="{{ Auth::user()->tw }}">
+                                    <input id="tw" name="tw" type="link" class="form-control" value="{{ Auth::user()->tw }}">
 
                                 </div>
                             </div>
@@ -139,13 +144,14 @@ $src = asset('uploads/'.$img);
                                     <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="link" class="form-control" value="{{ Auth::user()->fb }}">
+                                    <input id="fb" name="fb" type="link" class="form-control" value="{{ Auth::user()->fb }}">
 
                                 </div>
                             </div>
                         </div>
                         <div class="mt-5 text-right">
-                            <button class="btn btn-primary profile-button" type="button">
+                            <button class="btn btn-success px-5">
+                                <i class="fas fa-save"></i>
                                 Save Profile</button>
                         </div>
                     </form>
@@ -153,7 +159,7 @@ $src = asset('uploads/'.$img);
             </div>
 
         </div>
-        @endforeach
+
     </div>
 </section>
 @stop

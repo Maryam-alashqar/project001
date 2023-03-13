@@ -25,17 +25,17 @@
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Trending Top -->
+                    @foreach($top_trend as $top_trend)
                     <div class="trending-top mb-30">
                         <div class="trend-top-img">
-                            <img src={{ asset('siteassets//img/trending/trending_top.jpg') }} alt="">
+                            <img src="{{ asset( $top_trend -> image ) }}" alt="">
                             <div class="trend-top-cap">
-                                <span>Appetizers</span>
-                                <h2><a href="">Welcome To The Best Model Winner<br> Contest At
-                                        Look of the
-                                        year</a></h2>
+                                <span>{{ $top_trend -> category-> name }}</span>
+                                <h2><a href="">{{ $top_trend -> title }}</a></h2>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <!-- 3 Trending Bottom -->
                     <div class="trending-bottom">
                         <div class="row">

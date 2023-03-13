@@ -3,6 +3,7 @@
 @section('title', 'Details')
 
 @section('content')
+
 <div class="about-area">
     <div class="container">
         <div class="content">
@@ -37,7 +38,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             @if (Auth::check())
-                            <form class="" action="{{ route('site.comment', $details -> id) }}" method="post"
+                            <form class="" action=" " method="post"
                                 id="contactForm" novalidate="novalidate">
                                 @csrf
                                 <div class="row">

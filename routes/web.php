@@ -26,7 +26,8 @@ Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(
     Route::post('/settings', [AdminController::class, 'settings_store'])->name('settings_store');
 
     Route::resource('profile', ProfileController::class);
-
+    Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
+    
     Route::get('categories/trash', [CategoryController::class, 'trash'])->name('categories.trash');
     Route::resource('categories', CategoryController::class);
 
@@ -40,7 +41,7 @@ Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(
 Route::name('site.')->group(function () {
     Route::get('/', [SiteController::class, 'index'])->name('index');
     Route::get('/details/{id}',[SiteController::class, 'details'])->name('details');
-    Route::get('/details/{id}',[SiteController::class, 'comment'])->name('comment');
+    //Route::get('/details/{id}',[SiteController::class, 'comment'])->name('comment');
     Route::get('/about', [SiteController::class, 'about'])->name('about');
     Route::get('/category', [SiteController::class, 'category'])->name('category');
     Route::get('/contact', [SiteController::class, 'contact'])->name('contact');

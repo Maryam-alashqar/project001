@@ -14,11 +14,12 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-      
+    public function index()
+    {
+
         return view('admin.profile.index');
     }
-   
+
     /**
      * Show the form for creating a new resource.
      *
@@ -52,7 +53,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-       return $id;
+        return $id;
     }
 
     /**
@@ -61,11 +62,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( User $user)
+    public function edit(User $user)
     {
-  $user = User::all();
+
         return view('admin.profile.edit')->with('user', $user);
-        
     }
 
     /**
@@ -77,7 +77,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, User $user)
     {
-      /*   $path = $user->image;
+        /*   $path = $user->image;
         if($request->hasFile('image')) {
             File::delete(public_path($user->image));
             $path = $request->file('image')->store('/uploads', 'custom');
@@ -86,14 +86,14 @@ class ProfileController extends Controller
         $user->update([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
-          //  'image' => $path,
+            //  'image' => $path,
             'dob' => $request->dob,
             'fb' => $request->fb,
             'li' => $request->li,
             'tw' => $request->tw,
             'updated_at' => now()
         ]);
-        return $this->success('admin.profile.index','Profile updated successfully!');
+        return $this->success('admin.profile.index', 'Profile updated successfully!');
     }
 
     /**
