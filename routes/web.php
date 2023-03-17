@@ -26,8 +26,8 @@ Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(
     Route::post('/settings', [AdminController::class, 'settings_store'])->name('settings_store');
 
     Route::resource('profile', ProfileController::class);
-    Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
-    
+   
+
     Route::get('categories/trash', [CategoryController::class, 'trash'])->name('categories.trash');
     Route::resource('categories', CategoryController::class);
 

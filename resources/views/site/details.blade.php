@@ -10,8 +10,10 @@
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Trending Tittle -->
-
                     <div class="about-right mb-90 mt-3">
+                        <span>
+                            {{ views($details)->count() }} <i class="fa fa-eye"></i>
+                        </span>
                         <div class="about-img">
                             <img height="500px" src=" {{ asset( $details -> image ) }} " alt="">
                         </div>

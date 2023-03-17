@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('short_description');
             $table->text('full_description')->nullable();
             $table->string('image')->nullable();
+            $table->integer('views');
             $table->foreignId('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->integer('views');
             $table->timestamps();
         });
     }

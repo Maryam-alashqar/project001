@@ -84,30 +84,29 @@ $src = asset('uploads/'.$img);
                     <form action="{{ route('admin.profile.update', Auth::user()->id) }}" method="POST"
                         enctype="multipart/form-data" >
                         @csrf
-
-
+                        @method('PUT')
                         <div class="row mt-2">
                             <div class="col-md-6">
                                 <label for="firstname" class="labels">Name</label>
                                 <input name="firstname" type="text" class="form-control" placeholder="first name"
-                                value="{{ auth()->user()->firstname }}">
+                                value="{{ Auth::user()->firstname }}">
                             </div>
                             <div class="col-md-6">
                                 <label for="lastname" class="labels">Surname</label>
                                 <input name="lastname" type="text" class="form-control"
-                                    value="{{ auth()->user()->lastname }}">
+                                    value="{{ Auth::user()->lastname }}">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12 mb-3">
                                 <label for="mobile" class="labels">Mobile Number</label>
                                 <input type="text" class="form-control"
-                                    value="{{ auth()->user()->mobile }}">
+                                    value="{{ Auth::user()->mobile }}">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="dob" class="labels">Date of birth</label>
                                 <input id="dob" name="dob" type="date" class="form-control"
-                                value="{{ auth()->user()->dob }}">
+                                value="{{ Auth::user()->dob }}">
                             </div>
 
                             <div class="col-md-12 mb-3">
@@ -126,7 +125,7 @@ $src = asset('uploads/'.$img);
                                     <i class="fab fa-linkedin fa-lg" style="color: #3b5998;"></i>
                                 </div>
                                 <div class="col-md-9">
-                                    <input id="li" name="li" type="link" class="form-control" value="{{ Auth::user()->li }}">
+                                    <input id="li" name="li" class="form-control" value="{{ Auth::user()->li }}">
 
                                 </div>
                             </div>
@@ -135,7 +134,7 @@ $src = asset('uploads/'.$img);
                                     <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
                                 </div>
                                 <div class="col-md-9">
-                                    <input id="tw" name="tw" type="link" class="form-control" value="{{ Auth::user()->tw }}">
+                                    <input id="tw" name="tw" class="form-control" value="{{ Auth::user()->tw }}">
 
                                 </div>
                             </div>
@@ -144,7 +143,7 @@ $src = asset('uploads/'.$img);
                                     <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
                                 </div>
                                 <div class="col-md-9">
-                                    <input id="fb" name="fb" type="link" class="form-control" value="{{ Auth::user()->fb }}">
+                                    <input id="fb" name="fb" class="form-control" value="{{ Auth::user()->fb }}">
 
                                 </div>
                             </div>

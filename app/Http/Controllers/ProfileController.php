@@ -38,11 +38,7 @@ class ProfileController extends Controller
      */
     public function store(ProfileRequest $request)
     {
-        User::create([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lasttname,
-        ]);
-        return redirect()->route('admin.profile.index')->with('msg', 'Profile edited Successfully')->with('type', 'success');
+
     }
 
     /**
@@ -53,7 +49,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        return $id;
+
     }
 
     /**
@@ -77,11 +73,11 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, User $user)
     {
-        /*   $path = $user->image;
-        if($request->hasFile('image')) {
-            File::delete(public_path($user->image));
-            $path = $request->file('image')->store('/uploads', 'custom');
-        } */
+        // $path = $user->image;
+        // if($request->hasFile('image')) {
+        //     File::delete(public_path($user->image));
+        //     $path = $request->file('image')->store('/uploads', 'custom');
+        // }
 
         $user->update([
             'firstname' => $request->firstname,
@@ -93,7 +89,9 @@ class ProfileController extends Controller
             'tw' => $request->tw,
             'updated_at' => now()
         ]);
-        return $this->success('admin.profile.index', 'Profile updated successfully!');
+        return redirect()->route('admin.profile.index')
+        ->with('msg', 'profile Updated Successfully')
+        ->with('type', 'success');
     }
 
     /**
