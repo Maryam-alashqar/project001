@@ -17,10 +17,12 @@ class SiteController extends Controller
         $articales = articales::with('category')->latest('id')
             ->orderBy('id', 'desc')->limit(5)->get();
 
-            $top_trend = articales::with('category','views')
+        $top_trend = articales::orderByViews('desc')
             ->limit(1)->get();
-         
-        return view('site.index', compact('articales', 'top_trend'));
+
+        $trendin_bottom = articales::orderByViews('asc', Period::pastDays(7))
+            ->limit(3)->get();
+        return view('site.index', compact('articales', 'top_trend', 'trendin_bottom'));
     }
 
     public function details($id)

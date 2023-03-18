@@ -12,7 +12,7 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 class articales extends Model implements Viewable
 {
 
-    use HasFactory, SoftDeletes,InteractsWithViews ;
+    use HasFactory, SoftDeletes, InteractsWithViews ;
 
     protected $guarded = [];
 

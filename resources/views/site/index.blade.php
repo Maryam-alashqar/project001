@@ -31,7 +31,7 @@
                             <img src="{{ asset( $top_trend -> image ) }}" alt="">
                             <div class="trend-top-cap">
                                 <span>{{ $top_trend -> category-> name }}</span>
-                                <h2><a href="">{{ $top_trend -> title }}</a></h2>
+                                <h2><a href="{{ route('site.details',$top_trend->id) }}">{{ $top_trend -> title }}</a></h2>
                             </div>
                         </div>
                     </div>
@@ -39,19 +39,20 @@
                     <!-- 3 Trending Bottom -->
                     <div class="trending-bottom">
                         <div class="row">
+                            @foreach($trendin_bottom as $trendin_bottom)
                             <div class="col-lg-4">
                                 <div class="single-bottom mb-35">
                                     <div class="trend-bottom-img mb-30">
-                                        <img src={{ asset('siteassets//img/trending/trending_bottom1.jpg') }} alt="">
+                                        <img src="{{ asset( $trendin_bottom -> image ) }}" alt="">
                                     </div>
                                     <div class="trend-bottom-cap">
-                                        <span class="color1">Lifestyple</span>
-                                        <h4><a href="">Get the Illusion of Fuller Lashes by
-                                                “Mascng.”</a>
+                                        <span class="color1">{{ $trendin_bottom -> category-> name }}</span>
+                                        <h4><a href="{{ route('site.details',$trendin_bottom->id) }}">{{ $trendin_bottom -> title }}</a>
                                         </h4>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
 
                         </div>
                     </div>
