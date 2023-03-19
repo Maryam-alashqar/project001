@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Models\view;
 use App\Models\articales;
 use App\Models\categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use CyrildeWit\EloquentViewable\Support\Period;
-use Symfony\Component\HttpFoundation\Session\Session;
+
 
 class SiteController extends Controller
 {
@@ -20,9 +19,12 @@ class SiteController extends Controller
         $top_trend = articales::orderByViews('desc')
             ->limit(1)->get();
 
-        $trendin_bottom = articales::orderByViews('asc', Period::pastDays(7))
+        $trendin_bottom = articales::orderByViews('asc', Period::pastDays(30))
             ->limit(3)->get();
-        return view('site.index', compact('articales', 'top_trend', 'trendin_bottom'));
+
+        $weekly_top = articales::orderByViews('desc', Period::pastDays(7))
+        ->limit(6)->get();
+        return view('site.index', compact('articales', 'top_trend', 'trendin_bottom', 'weekly_top'));
     }
 
     public function details($id)

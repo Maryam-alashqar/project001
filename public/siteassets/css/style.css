@@ -3077,7 +3077,8 @@ hr {
 }
 
 .weekly-news-area .weekly-wrapper .weekly-single .weekly-img img {
-    width: 100%;
+    width: 350px;
+    height: 400px;
     border-radius: 6px
 }
 

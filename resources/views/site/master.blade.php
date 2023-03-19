@@ -8,21 +8,21 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('siteassets/img/favicon.ico') }}">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href={{ asset('siteassets/css/bootstrap.min.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/owl.carousel.min.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/ticker-style.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/flaticon.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/slicknav.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/animate.min.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/magnific-popup.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/fontawesome-all.min.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/themify-icons.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/slick.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/nice-select.css') }}>
-    <link rel="stylesheet" href={{ asset('siteassets/css/style.css') }}>
+    <link rel="stylesheet" href="{{ asset('siteassets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/ticker-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('siteassets/css/style.css') }}">
 </head>
 
 <body>
@@ -50,16 +50,16 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>
-                                        <li><img src={{ asset('siteassets/img/icon/header_icon1.png') }}>34ºc, Sunny
+                                        <li><img src="{{ asset('siteassets/img/icon/header_icon1.png') }}">34ºc, Sunny
                                         </li>
-                                        <li><img src={{ asset('siteassets/img/icon/header_icon1.png') }}>Tuesday, 18th
+                                        <li><img src="{{ asset('siteassets/img/icon/header_icon1.png') }}">Tuesday, 18th
                                             June, 2019</li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
                                     <ul class="navbar-nav ml-auto">
-                                        <li class="nav-item dropdown">    
-                          
+                                        <li class="nav-item dropdown">
+
                                             <a class="nav-link" data-toggle="dropdown" href="#">
                                                 <img width="25" height="20" style="object-fit: contain; margin-top: -5px;" src=""
                                                     class="img-circle elevation-2 ml-1" alt="">
@@ -69,14 +69,14 @@
                                                 <a href="" class="dropdown-item">
                                                     signed as <br>
                                                 </a>
-                        
+
                                                 <div class="dropdown-divider"></div>
                                                 <a href="" class="dropdown-item">
                                                     <i class="fas fa-user mr-2"></i> Profile
                                                 </a>
-                        
-                                            
-                        
+
+
+
                                                 <div class="dropdown-divider"></div>
                                                 <a href="{{ route('logout') }}" onclick="
                                                 event.preventDefault();
@@ -84,17 +84,17 @@
                                                 " class="dropdown-item">
                                                     <i class="fas fa-sign-out-alt mr-2"></i> Logout
                                                 </a>
-                        
+
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                     @csrf
                                                     {{-- <button class="dropdown-item">
                                                         <i class="fas fa-sign-out-alt mr-2"></i> Logout</button> --}}
                                                 </form>
-                        
+
                                             </div>
 
                                         </li>
-                               
+
                                     </ul>
                                 </div>
                             </div>
@@ -107,13 +107,13 @@
                             <!-- Logo -->
                             <div class="col-xl-3 col-lg-3 col-md-3">
                                 <div class="logo">
-                                    <a href="index.html"><img src={{ asset('siteassets/img/logo/logo.png') }}
+                                    <a href="index.html"><img src="{{ asset('siteassets/img/logo/logo.png') }}"
                                             alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-9 col-lg-9 col-md-9">
                                 <div class="header-banner f-right ">
-                                    <img src={{ asset('siteassets/img/hero/header_card.jpg') }}>
+                                    <img src="{{ asset('siteassets/img/hero/header_card.jpg') }}">
                                 </div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <a href="{{ route('site.index')}}"><img src={{ asset('siteassets/img/logo/logo.png') }}></a>
+                                    <a href="{{ route('site.index')}}"><img src="{{ asset('siteassets/img/logo/logo.png') }}"></a>
                                 </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
@@ -136,7 +136,7 @@
                                             <li><a href="{{ route('site.about')}}">About</a></li>
                                             <li><a href="latest_news.html">Latest News</a></li>
                                             <li><a href="{{ route('site.contact')}}">Contact</a></li>
-                                     
+
                                         </ul>
                                     </nav>
                                 </div>
@@ -214,7 +214,7 @@
                                             <div class="form-icon">
                                                 <button type="submit" name="submit" id="newsletter-submit"
                                                     class="email_icon newsletter-submit button-contactForm"><img
-                                                        src={{ asset('siteassets/img/logo/form-iocn.png') }} ></button>
+                                                        src="{{ asset('siteassets/img/logo/form-iocn.png') }}"></button>
                                             </div>
                                             <div class="mt-10 info"></div>
                                         </form>
@@ -223,7 +223,7 @@
                             </div>
                         </div>
                     </div>
-               
+
                 </div>
             </div>
         </div>
@@ -260,43 +260,43 @@
     <!-- JS here -->
 
     <!-- All JS Custom Plugins Link Here here -->
-    <script src={{ asset('siteassets/js/vendor/modernizr-3.5.0.min.js') }}></script>
+    <script src="{{ asset('siteassets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src={{ asset('siteassets/js/vendor/jquery-1.12.4.min.js') }}></script>
-    <script src={{ asset('siteassets/js/popper.min.js') }}></script>
-    <script src={{ asset('siteassets/js/bootstrap.min.js') }}></script>
+    <script src="{{ asset('siteassets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/bootstrap.min.js') }}"></script>
     <!-- Jquery Mobile Menu -->
-    <script src={{ asset('siteassets/js/jquery.slicknav.min.js') }}></script>
+    <script src="{{ asset('siteassets/js/jquery.slicknav.min.js') }}"></script>
 
     <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src={{ asset('siteassets/js/owl.carousel.min.js') }}></script>
-    <script src={{ asset('siteassets/js/slick.min.js') }}></script>
+    <script src="{{ asset('siteassets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/slick.min.js') }}"></script>
     <!-- Date Picker -->
-    <script src={{ asset('siteassets/js/gijgo.min.js') }}></script>
+    <script src="{{ asset('siteassets/js/gijgo.min.js') }}"></script>
     <!-- One Page, Animated-HeadLin -->
-    <script src={{ asset('siteassets/js/wow.min.js') }}></script>
-    <script src={{ asset('siteassets/js/animated.headline.js') }}></script>
-    <script src={{ asset('siteassets/js/jquery.magnific-popup.js') }}></script>
+    <script src="{{ asset('siteassets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/animated.headline.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.magnific-popup.js') }}"></script>
 
     <!-- Breaking New Pluging -->
-    <script src={{ asset('siteassets/js/jquery.ticker.js') }}></script>
-    <script src={{ asset('siteassets/js/site.js') }}></script>
+    <script src="{{ asset('siteassets/js/jquery.ticker.js') }}"></script>
+    <script src="{{ asset('siteassets/js/site.js') }}"></script>
 
     <!-- Scrollup, nice-select, sticky -->
-    <script src={{ asset('siteassets/js/jquery.scrollUp.min.js') }}></script>
-    <script src={{ asset('siteassets/js/jquery.nice-select.min.js') }}></script>
-    <script src={{ asset('siteassets/js/jquery.sticky.js') }}></script>
+    <script src="{{ asset('siteassets/js/jquery.scrollUp.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.sticky.js') }}"></script>
 
     <!-- contact js -->
-    <script src={{ asset('siteassets/js/contact.js') }}></script>
-    <script src={{ asset('siteassets/js/jquery.form.js') }}></script>
-    <script src={{ asset('siteassets/js/jquery.validate.min.js') }}></script>
-    <script src={{ asset('siteassets/js/mail-script.js') }}></script>
-    <script src={{ asset('siteassets/js/jquery.ajaxchimp.min.js') }}></script>
+    <script src="{{ asset('siteassets/js/contact.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.form.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/mail-script.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.ajaxchimp.min.js') }}"></script>
 
     <!-- Jquery Plugins, main Jquery -->
-    <script src={{ asset('siteassets/js/plugins.js') }}></script>
-    <script src={{ asset('siteassets/js/main.js') }}></script>
+    <script src="{{ asset('siteassets/js/plugins.js') }}"></script>
+    <script src="{{ asset('siteassets/js/main.js') }}"></script>
 
 </body>
 

@@ -43,7 +43,7 @@
                             <div class="col-lg-4">
                                 <div class="single-bottom mb-35">
                                     <div class="trend-bottom-img mb-30">
-                                        <img src="{{ asset( $trendin_bottom -> image ) }}" alt="">
+                                        <img style="object-fit: cover;" src="{{ asset( $trendin_bottom -> image ) }}" alt="">
                                     </div>
                                     <div class="trend-bottom-cap">
                                         <span class="color1">{{ $trendin_bottom -> category-> name }}</span>
@@ -62,7 +62,7 @@
                     @foreach($articales as $articale)
                     <div class="trand-right-single d-flex">
                         <div class="trand-right-img">
-                            <img width="180px" height="110px" src="{{ asset( $articale -> image) }}">
+                            <img width="180px" height="110px" style="object-fit: cover;"  src="{{ asset( $articale -> image) }}">
                         </div>
                         <div class="trand-right-cap">
                             <span class="color1">{{ $articale -> category-> name }}</span>
@@ -79,4 +79,38 @@
         </div>
     </div>
 </div>
+ <!-- Trending Area End -->
+    <!--   Weekly-News start -->
+    <div class="weekly-news-area pt-50">
+        <div class="container">
+           <div class="weekly-wrapper">
+                <!-- section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle mb-30">
+                            <h3>Weekly Top News</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="weekly-news-active dot-style d-flex dot-style">
+                            @foreach($weekly_top as $weekly_top)
+                            <div class="weekly-single">
+                                <div class="weekly-img">
+                                    <img style="object-fit: cover;"  src="{{ asset( $weekly_top -> image) }}" alt="">
+                                </div>
+                                <div class="weekly-caption">
+                                    <span class="color1">{{ $weekly_top -> category-> name }}</span>
+                                    <h4><a href="#">{{ $weekly_top ->  title }}</a></h4>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+    <!-- End Weekly-News -->
 @stop
