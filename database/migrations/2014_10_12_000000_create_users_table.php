@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('mobile');
             $table->enum('gender',['male','female']);
-            $table->enum('type',['admin','author','user','viewer']);
+            $table->enum('type',['admin','author','user','visitors']);
             $table->boolean('status')->default(1);
             $table->date('dob');
             $table->text('bio')->nullable();

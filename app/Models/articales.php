@@ -22,7 +22,7 @@ class articales extends Model implements Viewable
     }
 
     public function author(){
-        return $this->belongsTo(authors::class);
+        return $this->belongsTo(Author::class);
     }
 
     public function postView()

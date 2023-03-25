@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\articales;
 use Illuminate\Http\Request;
+use CyrildeWit\EloquentViewable\Support\Period;
 
 class HomeController extends Controller
 {
@@ -11,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+ /*   public function __construct()
     {
         $this->middleware('auth');
-    }
+    }*/
 
     /**
      * Show the application dashboard.
@@ -23,6 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $weekly_top = articales::with('category')->orderByViews('desc', Period::pastDays(7))->limit(6)->get();
+
+        return view('auth.selection', compact('weekly_top'));
     }
+
+//     public function index()
+//    {
+//         return view('home');
+//     }
 }
