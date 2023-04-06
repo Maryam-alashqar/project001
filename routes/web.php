@@ -24,7 +24,7 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
+    Route::get('/', [AdminController::class, 'index'])->name('index');
 
     Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
     Route::post('/settings', [AdminController::class, 'settings_store'])->name('settings_store');
@@ -39,27 +39,15 @@ Route::prefix('admin')->middleware('auth', 'check_user')->name('admin.')->group(
     Route::resource('articales', ArticaleController::class);
 
     Route::resource('authors', AuthorController::class);
-
 });
 
 Route::name('site.')->group(function () {
-    Route::get('/site', [SiteController::class, 'index'])->name('index');
-    Route::get('/details/{id}',[SiteController::class, 'details'])->name('details');
+    Route::get('/', [SiteController::class, 'index'])->name('index');
+    Route::get('/details/{id}', [SiteController::class, 'details'])->name('details');
     //Route::get('/details/{id}',[SiteController::class, 'comment'])->name('comment');
     Route::get('/about', [SiteController::class, 'about'])->name('about');
     Route::get('/category', [SiteController::class, 'category'])->name('category');
     Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
 });
 
-//Auth::routes();
-
-
-
-Route::get('/', [HomeController::class, 'index'])->name('selection');
-
-Route::group(['namespace' => 'Auth'], function(){
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'index'])->name('login');
-
-});
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Auth::routes();

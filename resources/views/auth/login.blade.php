@@ -218,10 +218,10 @@
             display: block;
         }
 
-   
-    
 
-    
+
+
+
     </style>
 </head>
 
@@ -233,9 +233,13 @@
         <div class="inner-header flex">
             <div class="all">
                 <div class="login-box">
-                    <h2>Login</h2>
+
+
+                   <h2>Sign in</h2>
+
                     <form autocomplete="off" method="POST" action="{{ route('login') }}">
                         @csrf
+
                         <div class="user-box">
                             <input type="text" name="email" value="{{ old('email') }}" autocomplete="off">
                             <label>Username/Email: </label>
@@ -265,17 +269,17 @@
                         </div>
 
                         <button href="#">
-                      
+
                            Login
                         </button>
                         <br>
-                        <br>   
+                        <br>
                         <p>Don't have an account?
-                            <a style="color:#741f1f" href="{{ route('register') }}"> 
+                            <a style="color:#741f1f" href="{{ route('register') }}">
                                 {{ __('Sign up') }}
                             </a>
-                        </p> 
-                        
+                        </p>
+
                     </form>
                 </div>
             </div>

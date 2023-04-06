@@ -58,16 +58,26 @@
                                 </div>
                                 <div class="header-info-right">
                                     <ul class="navbar-nav ml-auto">
-                                        <li class="nav-item dropdown">
+                                        @if (Auth::check())
 
+                                        @php
+                                        $name = Auth::user()->username??'';
+                                        $src = 'https://ui-avatars.com/api/?background=random&name='.$name;
+
+                                        if(Auth::user()->image) {
+                                        $img = Auth::user()->image;
+                                        $src = asset('uploads/'.$img);
+                                        }
+                                        @endphp
+                                        <li class="nav-item dropdown">
                                             <a class="nav-link" data-toggle="dropdown" href="#">
-                                                <img width="25" height="20" style="object-fit: contain; margin-top: -5px;" src=""
+                                                <img width="25" height="20" style="object-fit: contain; margin-top: -5px;" src="{{ $src }}"
                                                     class="img-circle elevation-2 ml-1" alt="">
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
                                             <div class="dropdown-menu  dropdown-menu-right">
                                                 <a href="" class="dropdown-item">
-                                                    signed as <br>
+                                                    signed as <br> {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                                                 </a>
 
                                                 <div class="dropdown-divider"></div>
@@ -77,7 +87,7 @@
 
 
 
-                                                <!-- <div class="dropdown-divider"></div>
+                                             <div class="dropdown-divider"></div>
                                                 <a href="" onclick="
                                                 event.preventDefault();
                                                 document.getElementById('logout-form').submit()
@@ -89,12 +99,21 @@
                                                     @csrf
                                                     {{-- <button class="dropdown-item">
                                                         <i class="fas fa-sign-out-alt mr-2"></i> Logout</button> --}}
-                                                </form> -->
+                                                </form>
 
                                             </div>
 
                                         </li>
+                                        @else
+                                        <li>
+                                            <a class="nav-link" href="{{ route('login') }}">Sign in
+                                                <img width="25" height="20" style="object-fit: contain; margin-top: -5px;"
+                                                 src="{{ asset('uploads/Default_pfp.svg.png') }}"
+                                                class="img-circle elevation-2 ml-1" >
+                                            </a>
+                                        </li>
 
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -132,7 +151,16 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="{{ route('site.index')}}">Home</a></li>
-                                            <li><a href="{{ route('site.category')}}">Category</a></li>
+                                            <li>
+                                                <a href="{{ route('site.category')}}"  data-toggle="dropdown">Category</a>
+                                                <div class="dropdown-menu  dropdown-menu-right">
+
+                                                    <a href="" class="dropdown-item">
+                                                       category1
+                                                    </a>
+                                                  
+                                                </div>
+                                            </li>
                                             <li><a href="{{ route('site.about')}}">About</a></li>
                                             <li><a href="latest_news.html">Latest News</a></li>
                                             <li><a href="{{ route('site.contact')}}">Contact</a></li>

@@ -30,43 +30,72 @@
 
         font-family: 'Times New Roman', Times, serif;
         font-size: 56px;
-        color: #474747;
+        color: #ffffff;
     }
 
     .header .slider-title p {
         font-family: 'Times New Roman', Times, serif;
-        width: 50%;
+        width: 70%;
+        padding: 0px 10px;
         font-size: 14px;
-        color: #707070;
+        color: #d4bebe;
 
     }
 
-    .header-info-left ul {
-        display: flex;
-        float: left;
+    .header .slider-title a {
+        margin-left: 10px;
+        display: inline-block;
+        background-color: #fff;
+        padding-top: 10px ;
+        padding-bottom: 10px ;
     }
+.box{
+    border: 1px solid;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        padding: 5px 30px;
+        font-size: 16px;
+}
+    .boxbtn {
+        background: #fff;
+        color: #000000 !important;
+        display: inline-block;
 
-    .header-info-left ul li {
-        list-style: none;
-        margin-right: 10px;
-
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+        font-weight: 300;
+        border: 0;
+        border: 1px solid #000000;
+        letter-spacing: 1px;
+        text-align: center;
+        color: #000000;
+        text-transform: uppercase;
+        cursor: pointer;
     }
+    .boxbtn:hover {
+  background: #ff656a;
+  color: #ff656a !important;
+  border: 1px solid #ff656a;
+}
+
 </style>
 
-<section
-    style=" background: url('{{ asset('siteassets/img/selection_header/h1_hero.jpg') }}') no-repeat center center ">
+<section style=" background: url('{{ asset('siteassets/img/selection_header/g1.jpg') }}') no-repeat center center ">
     <div class="header">
 
         <div class="container mt-5">
             <div class="slider-title mt-5">
                 <h1> Heading Title </h1>
-                <p>This text is an example of a text that can be replaced in the same space.
+                <p> This text is an example of a text that can be replaced in the same space.
                     This text was generated from text generator, where you can generate such text. </p>
                 <div class="row">
                     <div class="col-md-6">
-
-                        <button class="button button-contactForm boxed-btn"> User </button>
-                        <button class="button button-contactForm boxed-btn"> Author</button>
+                        <p> Browse and enjoy site features as a </p>
+                        <a href="{{ route('login') }}" class="box boxbtn "> User </a>
+                        <a href="{{ route('login') }}" class="box boxbtn "> Author</a>
                     </div>
                 </div>
             </div>
