@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\authors;
+use App\Models\Author;
+
 use App\Models\articales;
 use App\Models\categories;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\ArticaleRequest;
 
 class ArticaleController extends Controller
@@ -31,7 +32,7 @@ class ArticaleController extends Controller
     public function create()
     {
         $categories = categories::all();
-        $author = authors::all();
+        $author = Author::all();
         return view('admin.articales.create', compact('categories','author'));
     }
 
@@ -45,15 +46,15 @@ class ArticaleController extends Controller
     {
         $path = $request->file('image')->store('/uploads/articales', 'custom');
 
-        
+
             articales::create([
                'category_id' => $request->get('category_id'),
                 'title' => $request->title,
                 'short_description' => $request->short_description,
                 'full_description' => $request->full_description,
-                'image' => $path,    
+                'image' => $path,
             ]);
-        return redirect()->route('admin.articales.index')->with('msg', 'articale Added Successfully')->with('type', 'success'); 
+        return redirect()->route('admin.articales.index')->with('msg', 'articale Added Successfully')->with('type', 'success');
     }
 
     /**
@@ -120,5 +121,5 @@ class ArticaleController extends Controller
             $articales = articales::onlyTrashed()->latest('id')->paginate(env('PAGINATION_COUNT'));
         return view('admin.articales.trash', compact('articales'));
     }
-    
+
 }

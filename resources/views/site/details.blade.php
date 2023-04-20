@@ -11,11 +11,40 @@
                 <div class="col-lg-8">
                     <!-- Trending Tittle -->
                     <div class="about-right mb-90 mt-3">
-                        <span>
-                            {{ views($details)->count() }} <i class="fa fa-eye"></i>
-                        </span>
                         <div class="about-img">
                             <img height="500px" src=" {{ asset( $details -> image ) }} " alt="">
+                        </div>
+                        <div class="mt-3 mr-5 f-right">
+                            <div class="row">
+                                <div class="col-3">
+                                    <i class="fa fa-eye" style=" color: #9e9696;">
+                                        <span style="font-weight: 100; font-size: x-small;">
+                                            {{ views($details)->count() }}
+                                        </span>
+                                    </i>
+                                </div>
+
+                                <div class="col-3">
+                                    <a href="" role="button" tabindex="0">
+                                        <i class="fa fa-thumbs-down ">
+                                            <span style="font-weight: 100; font-size: x-small;">
+
+                                            </span>
+                                        </i>
+                                    </a>
+                                </div>
+
+                                <div class="col-3">
+                                    <a href="" role="button" tabindex="0">
+                                        <i class="fa fa-thumbs-up ">
+                                            <span style="font-weight: 100; font-size: x-small;">
+
+                                            </span>
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="section-tittle mb-30 pt-30">
                             <h3> {{ $details -> title }} </h3>
@@ -40,8 +69,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             @if (Auth::check())
-                            <form class="" action=" " method="post"
-                                id="contactForm" novalidate="novalidate">
+                            <form class="" action=" " method="post" id="contactForm" novalidate="novalidate">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">

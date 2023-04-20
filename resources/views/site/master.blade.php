@@ -76,12 +76,12 @@
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
                                             <div class="dropdown-menu  dropdown-menu-right">
-                                                <a href="" class="dropdown-item">
+                                                <a href="{{ route('site.userProfile') }}"  class="dropdown-item">
                                                     signed as <br> {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                                                 </a>
 
                                                 <div class="dropdown-divider"></div>
-                                                <a href="" class="dropdown-item">
+                                                <a href="{{ route('site.userProfile') }}" class="dropdown-item">
                                                     <i class="fas fa-user mr-2"></i> Profile
                                                 </a>
 
@@ -158,7 +158,7 @@
                                                     <a href="" class="dropdown-item">
                                                        category1
                                                     </a>
-                                                  
+
                                                 </div>
                                             </li>
                                             <li><a href="{{ route('site.about')}}">About</a></li>

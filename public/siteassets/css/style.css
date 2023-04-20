@@ -234,11 +234,11 @@ a:focus,
 }
 
 a {
-    color: #635c5c
+    color: #9e9696
 }
 
 a:hover {
-    color: #fff
+    color: #db4d4d
 }
 
 a:focus,
@@ -250,7 +250,7 @@ a:hover,
 
 a,
 button {
-    color: #fff;
+    color: #9e9696;
     outline: medium none
 }
 

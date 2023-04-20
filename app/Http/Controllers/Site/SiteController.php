@@ -50,4 +50,9 @@ class SiteController extends Controller
 
         return view('site.contact');
     }
+    public function userProfile()
+    {
+
+        return view('site.userProfile');
+    }
 }
