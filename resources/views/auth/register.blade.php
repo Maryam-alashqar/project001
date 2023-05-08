@@ -7,37 +7,39 @@
         padding-top: 50px;
         padding-bottom: 50px;
     }
-    form button {
-            position: relative;
-        
-            display: inline-block;
-            padding: 10px 150px;
-            color: #e4d3d3;
-            font-size: 16px;
-            text-decoration: none;
-            text-transform: uppercase;
-            overflow: hidden;
-            transition: .5s;
-            margin-top: 40px;
-         
-            background: transparent;
-            background: #8b2929;
-            border: none;
-            cursor: pointer;
-            font-family: event-reg !important;
-            /* letter-spacing: 4px */
-        }
-        button:hover {
-            background: #bd8282;
-            color: #fff;
-        
-            box-shadow: 0 0 5px #bd8282,
-                0 0 25px #bd8282,
-                0 0 50px #bd8282,
-                0 0 100px #bd8282;
-        }
 
+    form button {
+        position: relative;
+
+        display: inline-block;
+        padding: 10px 150px;
+        color: #e4d3d3;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 40px;
+
+        background: transparent;
+        background: #8b2929;
+        border: none;
+        cursor: pointer;
+        font-family: event-reg !important;
+        /* letter-spacing: 4px */
+    }
+
+    button:hover {
+        background: #bd8282;
+        color: #fff;
+
+        box-shadow: 0 0 5px #bd8282,
+            0 0 25px #bd8282,
+            0 0 50px #bd8282,
+            0 0 100px #bd8282;
+    }
 </style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 ">
@@ -47,8 +49,19 @@
                 <div class="form">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <!-- <div class="row mt-3 mb-3">
+                            <div class="col-md-8">
+                                <label for="image">Add PFP</label>
+                                <input id="image" name="image" type="file"
+                                    class="form-control @error('image') is-invalid @enderror " />
+                                @error('image')
+                                <small class="invalid-feedback">{{ $message }}</small>
+                                @enderror
+
+                            </div>
+                        </div> -->
                         <!-- {{-- {{__('firstname') }} --}} -->
-                        <div class="row mt-2 mb-3">
+                        <div class="row mt-4 mb-3">
                             <div class="col-md-4">
                                 <label for="firstname" class="labels">First Name</label>
                                 <input type="text" class="form-control @error('firstname') is-invalid @enderror"
@@ -103,7 +116,7 @@
                                 <input type="name"
                                     class="form-control @error('lastname') is-invalid
                                     @enderror" value="{{ old('lastname') }}">
-                                    
+
                                     @error('lastname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -118,7 +131,7 @@
                             <label for="mobile" class="col-md-2 col-form-label ">Mobile: </label>
 
                             <div class="col-md-6">
-                                <input id="mobile" type="mobile" class="form-control 
+                                <input id="mobile" type="mobile" class="form-control
                                 @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}">
 
                                 @error('mobile')

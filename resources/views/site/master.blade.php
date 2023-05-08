@@ -87,15 +87,15 @@
 
 
 
-                                             <div class="dropdown-divider"></div>
-                                                <a href="" onclick="
+                                                <div class="dropdown-divider"></div>
+                                                <a href="{{ route('logout') }}" onclick="
                                                 event.preventDefault();
                                                 document.getElementById('logout-form').submit()
                                                 " class="dropdown-item">
                                                     <i class="fas fa-sign-out-alt mr-2"></i> Logout
                                                 </a>
 
-                                                <form id="logout-form" action="" method="POST">
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                     @csrf
                                                     {{-- <button class="dropdown-item">
                                                         <i class="fas fa-sign-out-alt mr-2"></i> Logout</button> --}}
