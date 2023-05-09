@@ -18,7 +18,8 @@ class CheckUserType
     public function handle(Request $request, Closure $next)
     {
 
-        if (Auth::user()->type == 'user') {
+
+        if (Auth::user()->type == 'user' || Auth::user()->type == 'visitor') {
             return redirect('/');
         }
 

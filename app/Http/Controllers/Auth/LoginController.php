@@ -24,32 +24,20 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-   // use AuthTrait;
 
+public function redirectTo()
+{
+    // $url = Redirect::intended( '/' )->getTargetUrl();
 
-  /*  public function loginform($type)
-    {
-        return view('auth.login', compact('type'));
+    // dd($url);
+    if(Auth::user()->type == 'visitor'|| Auth::user()->type == 'user'){
+        // return redirect()->intended('/');
+        return '/';
+    }else {
+        // return redirect()->intended('/admin');
+        return '/admin';
     }
-
-    public function login(Request $request)
-    {
-
-        if (Auth::guard($this->checkGuard($request))
-            ->attempt(['email' => $request->email, 'password' => $request->password])
-        ) {
-            $this->redirect($request);
-        }
-    }
-
-    public function logout(Request $request, $type)
-    {
-        Auth::guard($type)->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
-    }
-*/
+}
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

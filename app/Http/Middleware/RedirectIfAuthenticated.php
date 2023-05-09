@@ -17,18 +17,25 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$guards)
     {
+        $guards = empty($guards) ? [null] : $guards;
 
-        if (auth('web')->check()) {
-            return redirect(RouteServiceProvider::HOME);
+        foreach ($guards as $guard) {
+            if (Auth::guard($guard)->check()) {
+                return redirect(RouteServiceProvider::HOME);
+            }
         }
-        if (auth('author')->check()) {
-            return redirect(RouteServiceProvider::AUTHORDASHBOARD);
-        }
-        if (auth('visitor')->check()) {
-            return redirect(RouteServiceProvider::VISITOR);
-        }
+
+        // if (auth('web')->check()) {
+        //     return redirect(RouteServiceProvider::HOME);
+        // }
+        // if (auth('author')->check()) {
+        //     return redirect(RouteServiceProvider::AUTHORDASHBOARD);
+        // }
+        // if (auth('visitor')->check()) {
+        //     return redirect(RouteServiceProvider::VISITOR);
+        // }
         return $next($request);
     }
 }
