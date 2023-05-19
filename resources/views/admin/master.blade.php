@@ -98,11 +98,11 @@
                 <li class="nav-item dropdown">
                     @php
                     $name = Auth::user()->username??'';
-                    $src = 'https://ui-avatars.com/api/?background=random&name='.$name;
+                    $src = 'https://ui-avatars.com/api/?background=random&color=fff&name='.$name;
 
                     if(Auth::user()->image) {
                     $img = Auth::user()->image;
-                    $src = asset('uploads/'.$img);
+                    $src = asset('uploads/pfp/'.$img);
                     }
                     @endphp
                     <a class="nav-link" data-toggle="dropdown" href="#">

@@ -73,16 +73,16 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, User $user)
     {
-        // $path = $user->image;
-        // if($request->hasFile('image')) {
-        //     File::delete(public_path($user->image));
-        //     $path = $request->file('image')->store('/uploads', 'custom');
-        // }
+         $path = $user->image;
+        if($request->hasFile('image')) {
+        File::delete(public_path($user->image));
+        $path = $request->file('image')->store('/uploads/pfp', 'custom');
+        }
 
         $user->update([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
-            //  'image' => $path,
+            'image' => $path,
             'dob' => $request->dob,
             'fb' => $request->fb,
             'li' => $request->li,
