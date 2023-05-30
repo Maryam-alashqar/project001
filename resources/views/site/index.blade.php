@@ -43,7 +43,7 @@
                             <div class="col-lg-4">
                                 <div class="single-bottom mb-35">
                                     <div class="trend-bottom-img mb-30">
-                                        <img style="object-fit: cover;" src="{{ asset( $trendin_bottom -> image ) }}" alt="">
+                                        <img style="object-fit: cover; width: 100%; height: 200px;" src="{{ asset( $trendin_bottom -> image ) }}" alt="">
                                     </div>
                                     <div class="trend-bottom-cap">
                                         <span class="color1">{{ $trendin_bottom -> category-> name }}</span>

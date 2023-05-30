@@ -2976,6 +2976,32 @@ hr {
     margin-bottom: 15px;
     display: inline-block
 }
+.trand-right-single .trand-right-cap span {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 400;
+    padding: 10px 15px;
+    line-height: 1;
+    margin-bottom: 15px;
+    display: inline-block
+}
+.trand-right-single .trand-right-cap h4 {
+    font-size: 18px
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .trand-right-single .trand-right-cap h4 {
+        font-size: 15px
+    }
+}
+.trand-right-single .trand-right-cap h4 a {
+    font-weight: 500;
+    line-height: 1.4
+}
+.trand-right-single .trand-right-cap h4 a:hover {
+    color: #fc3f00
+}
 
 .trending-area .trending-main .trand-right-single .trand-right-cap h4 {
     font-size: 18px
@@ -3691,7 +3717,7 @@ hr {
 }
 
 .about-area .about-right .about-img img {
-    width: 90%
+    width: 100%
 }
 
 .about-area .about-right .about-prea p {

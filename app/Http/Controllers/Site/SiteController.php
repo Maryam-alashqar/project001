@@ -16,17 +16,18 @@ class SiteController extends Controller
         $articales = articales::with('category')->latest('id')->orderBy('id', 'desc')->limit(5)->get();
         $top_trend = articales::with('category')->orderByViews('desc')->limit(1)->get();
         $trendin_bottom = articales::with('category')->orderByViews('asc', Period::pastDays(30))->limit(3)->get();
-        $weekly_top = articales::with('category')->orderByViews('desc', Period::pastDays(7))->limit(6)->get();
+        $weekly_top = articales::with('category')->orderByViews('desc', Period::pastDays(60))->limit(6)->get();
 
         return view('site.index', compact('articales', 'top_trend', 'trendin_bottom', 'weekly_top'));
     }
 
     public function details($id)
     {
+        $articales = articales::with('category')->latest('id')->orderBy('id', 'desc')->limit(5)->get();
         $details = articales::findOrFail($id);
         views($details)->record();
 
-        return view('site.details', compact('details'));
+        return view('site.details', compact('details','articales'));
     }
 
     public function comment($id)
