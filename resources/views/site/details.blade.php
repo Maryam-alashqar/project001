@@ -27,8 +27,8 @@
                             <h3> {{ $details -> title }} </h3>
                         </div>
                         <div class="about-prea">
-                            <p class="about-pera1 mb-25"> {{ $details -> short_description }} </p>
-                            <p class="about-pera1 mb-25">
+                            <p class="about-prea1 mb-25"> {{ $details -> short_description }} </p>
+                            <p class="about-prea mb-25">
                                 {{ $details -> full_description }} </p>
                         </div>
                         <div class="section-tittle">
@@ -62,21 +62,46 @@
                     <div class="row">
                         <div class="col-lg-8">
                             @if (Auth::check())
-                            <form class="" action=" " method="post" id="contactForm" novalidate="novalidate">
+                            @php
+                            $user_id= Auth::user()->id;
+                            $name = Auth::user()->username??'';
+                            $src = 'https://ui-avatars.com/api/?background=random&color=fff&name='.$name;
+
+                            if(Auth::user()->image) {
+                            $img = Auth::user()->image;
+                            $src = asset('uploads/pfp/'.$img);
+                            }
+                            @endphp
+                            <form class="" action="" method="post" id="contactForm" novalidate="novalidate">
                                 @csrf
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <textarea class="form-control w-100 error" name="comment" id="comment"
-                                                cols="20" rows="4" onfocus="this.placeholder = ''"
-                                                onblur="this.placeholder = 'Enter comment'"
-                                                placeholder="Enter comment"></textarea>
+                                <div class="col-lg-12">
+                                    <div class="row">
+
+                                        <div class="col-2 mt-2">
+                                            <a class="nav-link" data-toggle="dropdown" href="#">
+                                                <img width="40" height="40"
+                                                    style="object-fit: contain; margin-top: -5px; border-radius: 50%; border: 1px solid #9e9696;"
+                                                    src="{{ $src }}" class="img-circle elevation-2 ml-1" alt="">
+
+                                            </a>
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="form-group">
+                                                <textarea class="form-control w-100 error" name="comment" id="comment"
+                                                    cols="20" rows="2" onfocus="this.placeholder = ''"
+                                                    onblur="this.placeholder = 'Enter comment'"
+                                                    placeholder="Enter comment"> </textarea>
+                                                <input type="text" name="article_id" id="article_id" value="{{ $details->id }}" readonly  hidden >
+                                                <input type="text" name="user_id" id="user_id" value="{{$user_id }}" readonly  hidden >
+
+                                            </div>
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="form-group mt-3">
-                                    <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                                    <div class="form-group f-right">
+                                        <button type="button" class="button boxed-btn" onclick="performStore()" >
+                                            <i class="fas fa-paper-plane"></i></button>
+                                    </div>
                                 </div>
                             </form>
                             @else
@@ -111,4 +136,24 @@
 
     </div>
 </div>
+@section('scripts')
+
+<script>
+    function performStore(){
+        let formData = new FormData();
+        formData.append('comment',document.getElementById('comment').value);
+        formData.append('user_id',document.getElementById('user_id').value);
+        formData.append('article_id',document.getElementById('article_id').value);
+
+
+        store('/home/comments' , formData);
+    }
+
+
+</script>
+
+
+@endsection
+
+
 @stop

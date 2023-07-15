@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\articales;
+use App\Models\categories;
 use Illuminate\Http\Request;
 use CyrildeWit\EloquentViewable\Support\Period;
 
@@ -23,12 +24,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $weekly_top = articales::with('category')->orderByViews('desc', Period::pastDays(7))->limit(6)->get();
 
-        return view('auth.selection', compact('weekly_top'));
-    }
 
 //     public function index()
 //    {

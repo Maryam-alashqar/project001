@@ -66,19 +66,19 @@
 }
 
 .boxed-btn {
+    position: absolute;
+    margin-top: -55px;
+    margin-left: 5px;
     background: #fff;
     color: #fc3f00 !important;
     display: inline-block;
-    padding: 10px 25px;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
+    padding: 8px 10px;
+    font-size: 12px;
     border: 0;
+    border-radius: 50%;
     border: 1px solid #fc3f00;
-    letter-spacing: 3px;
     text-align: center;
     color: #fc3f00;
-    text-transform: uppercase;
     cursor: pointer
 }
 
@@ -3171,7 +3171,8 @@ hr {
     color: #000;
     font-size: 24px;
     font-weight: 600;
-    line-height: 1.4
+    line-height: 1.4;
+    text-transform: uppercase;
 }
 
 .dot-style .slick-dots {
@@ -3721,8 +3722,13 @@ hr {
 }
 
 .about-area .about-right .about-prea p {
-    font-size: 15px
+    font-size: 15px;
+    word-spacing: 2px;
+    line-height: 1.5;
+
+    width: 95%;
 }
+
 
 .social-share ul li {
     display: inline-block;

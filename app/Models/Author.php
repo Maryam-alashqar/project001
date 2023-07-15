@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Author extends Model
 {
     use HasFactory,  SoftDeletes;
-    
+
     protected $guarded=[];
 
     public function authors()
@@ -17,5 +17,6 @@ class Author extends Model
         return $this->hasMany(articales::class);
     }
 
+    
 
 }

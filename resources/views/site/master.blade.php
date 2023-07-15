@@ -154,15 +154,14 @@
                                             <li>
                                                 <a href="{{ route('site.category')}}"  data-toggle="dropdown">Category</a>
                                                 <div class="dropdown-menu  dropdown-menu-right">
-
+                                                    @foreach($categories as $categories)
                                                     <a href="" class="dropdown-item">
-                                                       category1
+                                                      {{$categories -> name}}
                                                     </a>
-
+                                                    @endforeach
                                                 </div>
                                             </li>
                                             <li><a href="{{ route('site.about')}}">About</a></li>
-                                            <li><a href="latest_news.html">Latest News</a></li>
                                             <li><a href="{{ route('site.contact')}}">Contact</a></li>
 
                                         </ul>
@@ -286,7 +285,7 @@
     </footer>
 
     <!-- JS here -->
-
+    @yield('script')
     <!-- All JS Custom Plugins Link Here here -->
     <script src="{{ asset('siteassets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <!-- Jquery, Popper, Bootstrap -->

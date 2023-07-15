@@ -29,4 +29,9 @@ class articales extends Model implements Viewable
     {
         return $this->hasMany(view::class);
     }
+
+    public function postComments()
+    {
+        return $this->hasMany(comment::class);
+    }
 }
