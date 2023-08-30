@@ -10,15 +10,16 @@ use Illuminate\Notifications\Notification;
 class AppliedNotification extends Notification
 {
     use Queueable;
-
+    
+    protected $application;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($application)
     {
-        //
+        $this->application = $application;
     }
 
     /**
@@ -29,7 +30,14 @@ class AppliedNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+
+        $channel = ['database'];
+
+        if($notifiable->channels) {
+            $channel = explode(',', $notifiable->channels);
+        }
+
+        return $channel;
     }
 
     /**
@@ -55,7 +63,8 @@ class AppliedNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'msg' => 'New Student '.$this->application->user->name.' Apply on ' . $this->application->course->name,
+            'url' => url('/applications')
         ];
     }
 }

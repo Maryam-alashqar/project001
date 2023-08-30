@@ -50,5 +50,7 @@ Route::name('site.')->group(function () {
     Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
     Route::get('/userProfile', [SiteController::class, 'userProfile'])->name('userProfile');
 });
-
+Route::get('send-notify', [NotifyController::class, 'send']);
+Route::get('read-notify', [NotifyController::class, 'read']);
+Route::get('notify/{id}', [NotifyController::class, 'notify'])->name('mark-read');
 Auth::routes();
